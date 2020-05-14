@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: potree.converter.server
+---
+testFramework: spock
+sourceLanguage: groovy
