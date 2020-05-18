@@ -15,4 +15,5 @@ Server that allows users to convert LIDAR data using PotreeConverter remotely
 - `curl -XPOST http://localhost:8080/entwine-converter/run?inputFile=/input/FTSTORY_Potree_Viewshed_Imagery_sampled.las`
  
 ##### POTREE
-``
+- `curl -X POST http://localhost:8080/potree-converter/run?inpputFile=$OSSIM_DATA/LiDAR_Test/FTSTORY_Potree_Viewshed_Imagery_sampled.la`
+
