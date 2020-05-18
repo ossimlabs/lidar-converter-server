@@ -7,11 +7,13 @@ class EntwineConverterService
 {
 	String run( File inputFile )
 	{
+
 		def cmd = [
-			'ls',
-			inputFile.parent
+			'entwine', 'build',
+			'-i', "/input/${inputFile.name}",
+			'-o', "/output/${ inputFile.name }"
 		]
-		
+
 		println cmd.join( ' ' )
 		
 		def process = cmd.execute()

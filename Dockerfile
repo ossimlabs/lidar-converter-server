@@ -1,4 +1,4 @@
-FROM potree-centos:latest
+FROM lidar-converter:latest
 USER root
 #RUN yum install -y java-1.8.0-openjdk-headless
 RUN yum install -y java-11-openjdk-headless
