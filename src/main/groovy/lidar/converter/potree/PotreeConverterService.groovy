@@ -1,10 +1,18 @@
 package lidar.converter.potree
 
+import java.time.Instant
 import javax.inject.Singleton
+import lidar.converter.LidarIndexerClient
 
 @Singleton
 class PotreeConverterService
 {
+	LidarIndexerClient lidarIndexerClient
+
+	PotreeConverterService(LidarIndexerClient lidarIndexerClient) {
+		this.lidarIndexerClient = lidarIndexerClient
+	}
+
 	String run( File inputFile )
 	{
 		def cmd = [
@@ -30,6 +38,14 @@ class PotreeConverterService
 		
 		if ( exitCode == 0 )
 		{
+			Map<String,Object> lidarProduct = [
+				ingest_date: Instant.now().toString(),
+				keyword: 'potree',
+				s3_link:  "/output/${ inputFile.name }" as String
+			]
+
+			lidarIndexerClient.postLidarProduct(lidarProduct)
+
 			return stdout.toString()
 		}
 		else
