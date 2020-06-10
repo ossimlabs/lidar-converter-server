@@ -3,5 +3,7 @@ micronaut:
     name: lidar-converter-server
 lidar:
   indexer:
-    endpoint: http://ptsv2.com
-    path: /t/8op9m-1591810729/post   
+    # endpoint: http://ptsv2.com
+    # path: /t/8op9m-1591810729/post   
+    endpoint: http://host.docker.internal:9999
+    path: /lidarProducts/createLidarProduct
