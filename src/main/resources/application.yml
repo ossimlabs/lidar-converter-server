@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: potree-converter-server
+    name: lidar-converter-server
 lidar:
   indexer:
     endpoint: http://ptsv2.com
