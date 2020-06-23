@@ -1,5 +1,7 @@
 package lidar.converter.potree
 
+import lidar.converter.PdalService
+
 import java.time.Instant
 import javax.inject.Singleton
 import lidar.converter.LidarIndexerClient
@@ -8,9 +10,11 @@ import lidar.converter.LidarIndexerClient
 class PotreeConverterService
 {
 	LidarIndexerClient lidarIndexerClient
+	PdalService pdalService
 
-	PotreeConverterService(LidarIndexerClient lidarIndexerClient) {
+	PotreeConverterService(LidarIndexerClient lidarIndexerClient, PdalService pdalService) {
 		this.lidarIndexerClient = lidarIndexerClient
+		this.pdalService = pdalService
 	}
 
 	String run( File inputFile )
@@ -41,7 +45,8 @@ class PotreeConverterService
 			Map<String,Object> lidarProduct = [
 				ingest_date: Instant.now().toString(),
 				keyword: 'potree',
-				s3_link:  "/output/${ inputFile.name }" as String
+				s3_link:  "/output/${ inputFile.name }" as String,
+				bbox: pdalService.getBboxWkt(inputFile)
 			]
 
 			lidarIndexerClient.postLidarProduct(lidarProduct)

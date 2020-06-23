@@ -4,12 +4,12 @@ plugins {
     id "application"
 }
 
-
-
 version "0.1"
 group "lidar.converter.server"
 
 repositories {
+    maven { url "https://repo.osgeo.org/repository/release" }
+    maven { url "https://repo.osgeo.org/repository/snapshot" }
     mavenCentral()
     maven { url "https://jcenter.bintray.com" }
 }
@@ -20,6 +20,52 @@ configurations {
 }
 
 dependencies {
+
+//    compile "commons-beanutils:commons-beanutils:1.9.2"
+
+    compile ( "org.geoscript:geoscript-groovy:1.14.0") {
+        exclude module: "commons-beanutils"
+        exclude module: "groovy-all"
+        exclude module: "gt-arcgrid"
+        exclude module: "gt-brewer"
+//        exclude module: "gt-charts"
+        exclude module: "gt-css"
+        exclude module: "gt-geobuf"
+        exclude module: "gt-geojson"
+        exclude module: "gt-geopkg"
+        exclude module: "gt-geotiff"
+        exclude module: "gt-grassraster"
+        exclude module: "gt-grid"
+        exclude module: "gt-gtopo30"
+        exclude module: "gt-image"
+        exclude module: "gt-imageio-ext-gdal"
+        exclude module: "gt-imagemosaic"
+        exclude module: "gt-imagepyramid"
+        exclude module: "gt-jdbc-h2"
+        exclude module: "gt-jdbc-mysql"
+        exclude module: "gt-jdbc-postgis"
+        exclude module: "gt-mbtiles"
+        exclude module: "gt-netcdf"
+        exclude module: "gt-ogr-jni"
+        exclude module: "gt-process"
+        exclude module: "gt-process-feature"
+        exclude module: "gt-process-geometry"
+        exclude module: "gt-process-raster"
+        exclude module: "gt-property"
+        exclude module: "gt-render"
+        exclude module: "gt-shapefile"
+        exclude module: "gt-svg"
+        exclude module: "gt-swing"
+        exclude module: "gt-wms"
+        exclude module: "gt-wfs-ng"
+        exclude module: "gt-xsd-kml"
+        exclude module: "gt-xsd-wfs"
+        exclude module: "gt-ysld"
+        exclude module: "itext"
+        exclude module: "mapbox-vector-tile"
+        exclude module: "opencsv"
+    }
+
     annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly "io.micronaut:micronaut-inject-groovy"
