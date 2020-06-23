@@ -1,5 +1,7 @@
 package lidar.converter.entwine
 
+import lidar.converter.PdalService
+
 import java.time.Instant
 import javax.inject.Singleton
 import lidar.converter.LidarIndexerClient
@@ -8,9 +10,11 @@ import lidar.converter.LidarIndexerClient
 class EntwineConverterService
 {
 	LidarIndexerClient lidarIndexerClient
+	PdalService pdalService
 
-	EntwineConverterService(LidarIndexerClient lidarIndexerClient) {
+	EntwineConverterService(LidarIndexerClient lidarIndexerClient, PdalService pdalService) {
 		this.lidarIndexerClient = lidarIndexerClient
+		this.pdalService = pdalService
 	}
 
 	String run( File inputFile )
@@ -38,7 +42,8 @@ class EntwineConverterService
 			Map<String,Object> lidarProduct = [
 				ingest_date: Instant.now().toString(),
 				keyword: 'entwine',
-				s3_link:  "/output/${ inputFile.name }" as String
+				s3_link:  "/output/${ inputFile.name }" as String,
+				bbox: pdalService.getBboxWkt(inputFile)
 			]
 
 			lidarIndexerClient.postLidarProduct(lidarProduct)
