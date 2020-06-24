@@ -1,12 +1,11 @@
 package lidar.converter.potree
 
-import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Post
 import io.micronaut.http.HttpStatus
-
+import io.micronaut.http.annotation.QueryValue
 
 @Controller( "/potree-converter" )
 class PotreeConverterController
@@ -17,17 +16,11 @@ class PotreeConverterController
 	{
 		this.potreeConverterService = potreeConverterService
 	}
-	
-	@Get( "/" )
-	HttpStatus index()
-	{
-		return HttpStatus.OK
-	}
-	
+
 	@Post( '/run' )
-	HttpResponse<String> run( HttpRequest request )
+	HttpResponse<String> run( @QueryValue String inputFileName )
 	{
-		def inputFile = request.parameters.getFirst( 'inputFile' ).orElse( null ) as File
+		def inputFile = inputFileName as File
 		String message = potreeConverterService.run( inputFile )
 		
 		HttpResponse.ok( message )

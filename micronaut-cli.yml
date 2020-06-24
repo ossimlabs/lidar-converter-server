@@ -1,5 +1,5 @@
 profile: service
-defaultPackage: lidar.converter.server
+defaultPackage: lidar.converter
 ---
 testFramework: spock
 sourceLanguage: groovy

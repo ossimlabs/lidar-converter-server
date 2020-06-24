@@ -66,6 +66,9 @@ dependencies {
         exclude module: "opencsv"
     }
 
+    compileOnly "io.micronaut.configuration:micronaut-openapi"
+    implementation "io.swagger.core.v3:swagger-annotations"
+
     annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly "io.micronaut:micronaut-inject-groovy"
@@ -91,6 +94,7 @@ test.classpath += configurations.developmentOnly
 mainClassName = "lidar.converter.Application"
 tasks.withType(GroovyCompile) {
     groovyOptions.forkOptions.jvmArgs.add('-Dgroovy.parameters=true')
+    groovyOptions.forkOptions.jvmArgs.add('-Dmicronaut.openapi.views.spec=redoc.enabled=true,rapidoc.enabled=true,swagger-ui.enabled=true,swagger-ui.theme=flattop')
 }
 
 shadowJar {
