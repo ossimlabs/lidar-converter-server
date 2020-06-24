@@ -6,6 +6,7 @@ import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Post
 import io.micronaut.http.HttpStatus
+import io.micronaut.http.annotation.QueryValue
 
 @Controller( "/entwine-converter" )
 class EntwineConverterController
@@ -16,17 +17,11 @@ class EntwineConverterController
 	{
 		this.entwineConverterService = entwineConverterService
 	}
-	
-	@Get( "/" )
-	HttpStatus index()
-	{
-		return HttpStatus.OK
-	}
-	
+
 	@Post( '/run' )
-	HttpResponse<String> run( HttpRequest request )
+	HttpResponse<String> run( @QueryValue String inputFileName )
 	{
-		def inputFile = request.parameters.getFirst( 'inputFile' ).orElse( null ) as File
+		def inputFile = inputFileName as File
 		String message = entwineConverterService.run( inputFile )
 		
 		HttpResponse.ok( message )
