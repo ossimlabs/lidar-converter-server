@@ -1,0 +1,27 @@
+micronaut:
+  application:
+    name: lidar-converter-server
+  config-client:
+    enabled: true
+
+kubernetes:
+  client:
+    # host: https://172.20.0.1
+    # port: 443
+    secure: true
+#    namespace: camel-caravan
+
+    secrets:
+      enabled: false
+      # use-api: true
+      # excludes: mounted-secret
+      # paths:
+      #   - /etc/example-service/secrets
+    discovery:
+      enabled: true
+
+    config-maps:
+      enabled: false
+      watch: false
+      labels:
+        - app: lidar-converter-server
