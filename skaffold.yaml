@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta4
+kind: Config
+metadata:
+  name: lidar-converter-server
+build:
+  artifacts:
+    - image: hercules/lidar-converter-server
+      jib: {}
+deploy:
+  helm:
+    releases:
+      - name: lidar-converter-server
+        chartPath: chart

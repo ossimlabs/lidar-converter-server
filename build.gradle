@@ -1,5 +1,6 @@
 plugins {
     id "groovy"
+    id "com.google.cloud.tools.jib" version "2.4.0"
     id "com.github.johnrengelman.shadow" version "5.2.0"
     id "application"
 }
@@ -66,8 +67,11 @@ dependencies {
         exclude module: "opencsv"
     }
 
+    implementation "io.micronaut:micronaut-management"
     compileOnly "io.micronaut.configuration:micronaut-openapi"
     implementation "io.swagger.core.v3:swagger-annotations"
+
+    implementation "io.micronaut.kubernetes:micronaut-kubernetes-discovery-client"
 
     annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
@@ -104,4 +108,40 @@ shadowJar {
 tasks.withType(JavaExec) {
     classpath += configurations.developmentOnly
     jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
+}
+
+jib {
+    from {
+        image = "nexus-docker-public-hosted.ossim.io/lidar-converter-alpine:latest"
+    }
+    to {
+        image = 'hercules/lidar-converter-server'
+        tags = ['latest']
+    }
+    extraDirectories {
+        paths {
+            path {
+                from = file('src/main/jib')
+                into = "/app"
+            }
+            path {
+                from = file('src/main/jib')
+                into = "/app"
+            }
+        }
+        permissions = [
+                "/app/run_java.sh": "755"
+        ]
+    }
+    containerizingMode = 'packaged'
+    container {
+        environment = [
+                JAVA_APP_DIR: '/app',
+                JAVA_MAIN_CLASS: mainClassName,
+                JAVA_CLASSPATH: '/app/classpath/*:/app/libs/*'
+        ]
+        ports = ['8080']
+        creationTime = 'USE_CURRENT_TIMESTAMP'
+        entrypoint = ['/app/run_java.sh']
+    }
 }

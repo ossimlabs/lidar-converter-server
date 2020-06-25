@@ -1,0 +1,3 @@
+image:
+  name: hercules/lidar-converter-server
+  pullPolicy: IfNotPresent
