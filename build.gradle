@@ -115,7 +115,7 @@ jib {
         image = "nexus-docker-public-hosted.ossim.io/lidar-converter-alpine:latest"
     }
     to {
-        image = 'hercules/lidar-converter-server'
+        image = 'nexus-docker-public-hosted.ossim.io/lidar-converter-server'
         tags = ['latest']
     }
     extraDirectories {

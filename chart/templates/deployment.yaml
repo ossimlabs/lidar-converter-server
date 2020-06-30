@@ -32,14 +32,20 @@ spec:
             timeoutSeconds: 3
             failureThreshold: 10
           volumeMounts:
-            - mountPath: /input
-              name: input
-            - mountPath: /output
-              name: output
+            # - mountPath: /input
+            #   name: input
+            # - mountPath: /output
+            #   name: output
+            - mountPath: /data
+              name: vol1
+            
       volumes:
-        - name: input
-          hostPath:
-            path: /System/Volumes/Data/ossim
-        - name: output
-          hostPath:
-            path: /opt/local/www/apache2/html
+        # - name: input
+        #   hostPath:
+        #     path: /System/Volumes/Data/ossim
+        # - name: output
+        #   hostPath:
+        #     path: /opt/local/www/apache2/html
+        - persistentVolumeClaim:
+            claimName: lidar-converter-server-ossim-data-pvc
+          name: vol1
