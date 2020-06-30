@@ -5,7 +5,7 @@ plugins {
     id "application"
 }
 
-version "0.1"
+version "0.2"
 group "lidar.converter.server"
 
 repositories {
@@ -133,12 +133,12 @@ jib {
                 "/app/run_java.sh": "755"
         ]
     }
-    containerizingMode = 'packaged'
+    // containerizingMode = 'packaged'
     container {
         environment = [
                 JAVA_APP_DIR: '/app',
                 JAVA_MAIN_CLASS: mainClassName,
-                JAVA_CLASSPATH: '/app/classpath/*:/app/libs/*'
+                JAVA_CLASSPATH: '/app/classes:/app/resources/*:/app/libs/*'
         ]
         ports = ['8080']
         creationTime = 'USE_CURRENT_TIMESTAMP'
