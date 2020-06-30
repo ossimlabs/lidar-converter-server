@@ -5,12 +5,19 @@ import lidar.converter.PdalService
 import java.time.Instant
 import javax.inject.Singleton
 import lidar.converter.LidarIndexerClient
+import io.micronaut.context.annotation.Value
 
 @Singleton
 class PotreeConverterService
 {
 	LidarIndexerClient lidarIndexerClient
 	PdalService pdalService
+
+	@Value('${lidar.converter.potree.inputDirectory}')
+	String inputDirectory
+
+	@Value('${lidar.converter.potree.outputDirectory}')
+	String outputDirectory
 
 	PotreeConverterService(LidarIndexerClient lidarIndexerClient, PdalService pdalService) {
 		this.lidarIndexerClient = lidarIndexerClient

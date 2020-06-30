@@ -17,6 +17,14 @@ micronaut:
         mapping: /swagger-ui/**
 
 lidar:
+  converter:
+    potree:
+      inputDirectory: /data/lidar
+      outputDirectory: /data/lidar 
+    entwine:
+      inputDirectory: /data/lidar
+      outputDirectory:  /data/lidar
+  
   indexer:
     # endpoint: http://ptsv2.com
     # path: /t/8op9m-1591810729/post   
