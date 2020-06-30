@@ -5,12 +5,21 @@ import lidar.converter.PdalService
 import java.time.Instant
 import javax.inject.Singleton
 import lidar.converter.LidarIndexerClient
+import io.micronaut.context.annotation.Value
 
 @Singleton
 class EntwineConverterService
 {
 	LidarIndexerClient lidarIndexerClient
 	PdalService pdalService
+
+
+	@Value('${lidar.converter.entwine.inputDirectory}')
+	String inputDirectory
+
+	@Value('${lidar.converter.entwine.outputDirectory}')
+	String outputDirectory
+
 
 	EntwineConverterService(LidarIndexerClient lidarIndexerClient, PdalService pdalService) {
 		this.lidarIndexerClient = lidarIndexerClient
@@ -21,8 +30,8 @@ class EntwineConverterService
 	{
 		def cmd = [
 			'entwine', 'build',
-			'-i', "/input/${inputFile.name}",
-			'-o', "/output/${ inputFile.name }"
+			'-i', "${inputDirectory}/${inputFile.name}",
+			'-o', "${outputDirectory}/${ inputFile.name }"
 		]
 
 		println cmd.join( ' ' )

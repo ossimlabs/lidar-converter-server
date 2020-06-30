@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: lidar-converter-server
+    labels:
+        app: lidar-converter-server
+data:
+    application.yaml: |-
+        lidar:
+            converter:
+              potree:
+                inputDirectory: /data/lidar
+                outputDirectory: /data/lidar 
+              entwine:
+                inputDirectory: /data/lidar
+                outputDirectory:  /data/lidar
