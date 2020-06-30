@@ -31,3 +31,15 @@ spec:
             initialDelaySeconds: 5
             timeoutSeconds: 3
             failureThreshold: 10
+          volumeMounts:
+            - mountPath: /input
+              name: input
+            - mountPath: /output
+              name: output
+      volumes:
+        - name: input
+          hostPath:
+            path: /System/Volumes/Data/ossim
+        - name: output
+          hostPath:
+            path: /opt/local/www/apache2/html
