@@ -28,8 +28,8 @@ class PotreeConverterService
 	{
 		def cmd = [
 			'/usr/local/bin/PotreeConverter',
-			'--source', "/input/${ inputFile.name }",
-			'--outdir', "/output/${ inputFile.name }",
+			'--source', "${inputDirectory}/${ inputFile.name }",
+			'--outdir', "${outputDirectory}/${ inputFile.name }",
 			'--generate-page', 'index',
 			'--material', 'RGB',
 			'--edl-enabled',
@@ -52,7 +52,7 @@ class PotreeConverterService
 			Map<String,Object> lidarProduct = [
 				ingest_date: Instant.now().toString(),
 				keyword: 'potree',
-				s3_link:  "/output/${ inputFile.name }" as String,
+				s3_link:  "${outputDirectory}/${ inputFile.name }" as String,
 				bbox: pdalService.getBboxWkt(inputFile)
 			]
 

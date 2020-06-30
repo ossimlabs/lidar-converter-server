@@ -8,5 +8,5 @@
 docker run -it --rm -p 8888:8080 \
   -v ${OSSIM_DATA}/LiDAR_Test:/input \
   -v ${PWD}/output:/output \
-  hercules/lidar-converter-server
+  nexus-docker-public-hosted.ossim.io/lidar-converter-server
 

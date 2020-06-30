@@ -51,7 +51,7 @@ class EntwineConverterService
 			Map<String,Object> lidarProduct = [
 				ingest_date: Instant.now().toString(),
 				keyword: 'entwine',
-				s3_link:  "/output/${ inputFile.name }" as String,
+				s3_link:  "${outputDirectory}/${ inputFile.name }" as String,
 				bbox: pdalService.getBboxWkt(inputFile)
 			]
 
