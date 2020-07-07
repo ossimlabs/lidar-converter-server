@@ -10,8 +10,8 @@ data:
         lidar:
             converter:
               potree:
-                inputDirectory: /data/lidar
-                outputDirectory: /data/lidar 
+                inputDirectory: /input
+                outputDirectory: /output
               entwine:
-                inputDirectory: /data/lidar
-                outputDirectory:  /data/lidar
+                inputDirectory: /input
+                outputDirectory: /output

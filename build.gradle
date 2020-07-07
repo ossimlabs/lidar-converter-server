@@ -23,6 +23,7 @@ configurations {
 dependencies {
 
 //    compile "commons-beanutils:commons-beanutils:1.9.2"
+    compile group: 'commons-io', name: 'commons-io', version: '2.7'
 
     compile ( "org.geoscript:geoscript-groovy:1.14.0") {
         exclude module: "commons-beanutils"
@@ -116,6 +117,7 @@ jib {
     }
     to {
         image = 'nexus-docker-public-hosted.ossim.io/lidar-converter-server'
+//        image = 'hercules/lidar-converter-server'
         tags = ['latest']
     }
     extraDirectories {
@@ -133,12 +135,13 @@ jib {
                 "/app/run_java.sh": "755"
         ]
     }
-    // containerizingMode = 'packaged'
+    containerizingMode = 'packaged'
     container {
         environment = [
                 JAVA_APP_DIR: '/app',
                 JAVA_MAIN_CLASS: mainClassName,
-                JAVA_CLASSPATH: '/app/classes:/app/resources/*:/app/libs/*'
+//                JAVA_CLASSPATH: '/app/classes:/app/resources/*:/app/libs/*'
+                JAVA_CLASSPATH: '/app/classpath/*:/app/libs/*'
         ]
         ports = ['8080']
         creationTime = 'USE_CURRENT_TIMESTAMP'

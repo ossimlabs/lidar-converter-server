@@ -1,3 +1,4 @@
 image:
   name: nexus-docker-public-hosted.ossim.io/lidar-converter-server
+#  name: hercules/lidar-converter-server
   pullPolicy: IfNotPresent
