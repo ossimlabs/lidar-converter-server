@@ -10,8 +10,8 @@ data:
         lidar:
             converter:
               potree:
-                inputDirectory: /input
                 outputDirectory: /output
               entwine:
-                inputDirectory: /input
                 outputDirectory: /output
+            indexer:
+                endpoint: http://${LIDAR_INDEXER_SERVICE_HOST}:${LIDAR_INDEXER_SERVICE_PORT}
