@@ -1,6 +1,6 @@
 #!/bin/bash
 
-gradle assemble
+#gradle assemble
 #docker build -t lidar-converter-server .
 
 gradle jibDockerBuild

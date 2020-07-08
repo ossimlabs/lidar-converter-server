@@ -5,6 +5,7 @@ metadata:
 build:
   artifacts:
     - image: nexus-docker-public-hosted.ossim.io/lidar-converter-server
+#    - image: hercules/lidar-converter-server
       jib: {}
 deploy:
   helm:

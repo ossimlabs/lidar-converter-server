@@ -15,18 +15,17 @@ micronaut:
       swagger-ui:
         paths: classpath:META-INF/swagger/views/swagger-ui
         mapping: /swagger-ui/**
-
 lidar:
   converter:
     potree:
-      inputDirectory: /data/lidar
-      outputDirectory: /data/lidar 
+#      outputDirectory: /data/lidar
+      outputDirectory: ${LIDAR_CONVERTER_OUTPUT_DIRECTORY:/output}
     entwine:
-      inputDirectory: /data/lidar
-      outputDirectory:  /data/lidar
-  
+#      outputDirectory:  /data/lidar
+      outputDirectory: ${LIDAR_CONVERTER_OUTPUT_DIRECTORY:/output}
   indexer:
     # endpoint: http://ptsv2.com
     # path: /t/8op9m-1591810729/post   
-    endpoint: http://host.docker.internal:8080
+#    endpoint: http://host.docker.internal:8080
+    endpoint: ${LIDAR_INDEXER_URL:`http://lidar-indexer:8080`}
     path: /lidarProducts/createLidarProduct

@@ -1,6 +1,7 @@
 package lidar.converter.entwine
 
 import lidar.converter.PdalService
+import org.apache.commons.io.FilenameUtils
 
 import java.time.Instant
 import javax.inject.Singleton
@@ -8,61 +9,53 @@ import lidar.converter.LidarIndexerClient
 import io.micronaut.context.annotation.Value
 
 @Singleton
-class EntwineConverterService
-{
-	LidarIndexerClient lidarIndexerClient
-	PdalService pdalService
+class EntwineConverterService {
+    LidarIndexerClient lidarIndexerClient
+    PdalService pdalService
 
+    @Value('${lidar.converter.entwine.outputDirectory}')
+    String outputDirectory
 
-	@Value('${lidar.converter.entwine.inputDirectory}')
-	String inputDirectory
+    EntwineConverterService(LidarIndexerClient lidarIndexerClient, PdalService pdalService) {
+        this.lidarIndexerClient = lidarIndexerClient
+        this.pdalService = pdalService
+    }
 
-	@Value('${lidar.converter.entwine.outputDirectory}')
-	String outputDirectory
+    String run(File inputFile) {
+        def outputFile = "/entwine/${FilenameUtils.getBaseName(inputFile.name)}"
 
+        def cmd = [
+                'entwine', 'build',
+                '-i', "${inputFile}",
+                '-o', "${new File(outputDirectory, outputFile)}"
+        ]
 
-	EntwineConverterService(LidarIndexerClient lidarIndexerClient, PdalService pdalService) {
-		this.lidarIndexerClient = lidarIndexerClient
-		this.pdalService = pdalService
-	}
+        println cmd.join(' ')
 
-	String run( File inputFile )
-	{
-		def cmd = [
-			'entwine', 'build',
-			'-i', "${inputDirectory}/${inputFile.name}",
-			'-o', "${outputDirectory}/${ inputFile.name }"
-		]
+        def process = cmd.execute()
+        def stdout = new StringWriter()
+        def stderr = new StringWriter()
 
-		println cmd.join( ' ' )
-		
-		def process = cmd.execute()
-		def stdout = new StringWriter()
-		def stderr = new StringWriter()
-		
-		process.consumeProcessOutput( stdout, stderr )
-		
-		def exitCode = process.waitFor()
+        process.consumeProcessOutput(stdout, stderr)
 
-		println "exitCode: ${exitCode}"
-				
-		if ( exitCode == 0 )
-		{
-			Map<String,Object> lidarProduct = [
-				ingest_date: Instant.now().toString(),
-				keyword: 'entwine',
-				s3_link:  "${outputDirectory}/${ inputFile.name }" as String,
-				bbox: pdalService.getBboxWkt(inputFile)
-			]
+        def exitCode = process.waitFor()
 
-			lidarIndexerClient.postLidarProduct(lidarProduct)
+        println "exitCode: ${exitCode}"
 
-			return stdout.toString()
-		}
-		else
-		{
-			return stderr.toString()
-		}
-	}
-	
+        if (exitCode == 0) {
+            Map<String, Object> lidarProduct = [
+                    ingest_date: Instant.now().toString(),
+                    keyword    : 'entwine',
+                    s3_link    : outputFile as String,
+                    bbox       : pdalService.getBboxWkt(inputFile)
+            ]
+
+            lidarIndexerClient.postLidarProduct(lidarProduct)
+
+            return stdout.toString()
+        } else {
+            return stderr.toString()
+        }
+    }
+
 }
