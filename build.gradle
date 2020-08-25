@@ -9,6 +9,7 @@ version "0.3"
 group "lidar.converter.server"
 
 repositories {
+    maven { url "https://nexus.ossim.io/repository/all-repos" }
     maven { url "https://repo.osgeo.org/repository/release" }
     maven { url "https://repo.osgeo.org/repository/snapshot" }
     mavenCentral()
