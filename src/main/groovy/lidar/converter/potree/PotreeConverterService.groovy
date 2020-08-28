@@ -1,6 +1,7 @@
 package lidar.converter.potree
 
 import lidar.converter.PdalService
+import lidar.converter.zip.ZipService
 import org.apache.commons.io.FilenameUtils
 
 import java.time.Instant
@@ -12,22 +13,25 @@ import io.micronaut.context.annotation.Value
 class PotreeConverterService {
     LidarIndexerClient lidarIndexerClient
     PdalService pdalService
+    ZipService zipService
 
     @Value('${lidar.converter.potree.outputDirectory}')
     String outputDirectory
 
-    PotreeConverterService(LidarIndexerClient lidarIndexerClient, PdalService pdalService) {
+    PotreeConverterService(LidarIndexerClient lidarIndexerClient, PdalService pdalService, ZipService zipService) {
         this.lidarIndexerClient = lidarIndexerClient
         this.pdalService = pdalService
+        this.zipService = zipService
     }
 
     String run(File inputFile) {
         def outputFile = "/potree/${FilenameUtils.getBaseName(inputFile.name)}"
+        String outputLocation = new File(outputDirectory, outputFile)
 
         def cmd = [
                 '/usr/local/bin/PotreeConverter',
                 '--source', "${inputFile}",
-                '--outdir', "${new File(outputDirectory, outputFile)}",
+                '--outdir', "${outputLocation}",
                 '--generate-page', 'index',
                 '--material', 'RGB',
                 '--edl-enabled',
@@ -45,7 +49,11 @@ class PotreeConverterService {
 
         def exitCode = process.waitFor()
 
+        println "exitCode: ${exitCode}"
+
         if (exitCode == 0) {
+            zipService.run(outputLocation, FilenameUtils.getBaseName(inputFile.name))
+
             Map<String, Object> lidarProduct = [
                     ingest_date: Instant.now().toString(),
                     keyword    : 'potree',
@@ -54,6 +62,7 @@ class PotreeConverterService {
             ]
 
             lidarIndexerClient.postLidarProduct(lidarProduct)
+            println stdout.toString()
 
             return stdout.toString()
         } else {
