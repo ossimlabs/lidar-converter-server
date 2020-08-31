@@ -7,6 +7,8 @@ build:
     - image: nexus-docker-public-hosted.ossim.io/lidar-converter-server
 #    - image: hercules/lidar-converter-server
       jib: {}
+  tagPolicy:
+    sha256: {}
 deploy:
   helm:
     releases:
