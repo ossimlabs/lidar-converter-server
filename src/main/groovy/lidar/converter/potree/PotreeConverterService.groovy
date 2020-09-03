@@ -56,7 +56,7 @@ class PotreeConverterService {
 
             Map<String, Object> lidarProduct = [
                     ingest_date: Instant.now().toString(),
-                    keyword    : 'potree',
+                    keyword    : FilenameUtils.getBaseName(inputFile.name),
                     s3_link    : outputFile as String,
                     bbox       : pdalService.getBboxWkt(inputFile)
             ]
