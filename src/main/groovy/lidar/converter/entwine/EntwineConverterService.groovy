@@ -36,8 +36,6 @@ class EntwineConverterService {
 
         println cmd.join(' ')
 
-        zipService.run(outputLocation, FilenameUtils.getBaseName(inputFile.name))
-
         def process = cmd.execute()
         def stdout = new StringWriter()
         def stderr = new StringWriter()
