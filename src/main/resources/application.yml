@@ -1,6 +1,8 @@
 micronaut:
   application:
     name: lidar-converter-server
+#  server:
+#    context-path: /lidar-converter-server
   router:
     static-resources:
       swagger:

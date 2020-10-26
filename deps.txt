@@ -1,0 +1,1083 @@
+
+------------------------------------------------------------
+Root project
+------------------------------------------------------------
+
+annotationProcessor - Annotation processors and their dependencies for source set 'main'.
+\--- io.micronaut:micronaut-bom:1.3.7
+
+apiElements - API elements for main. (n)
+No dependencies
+
+archives - Configuration for archive artifacts. (n)
+No dependencies
+
+compileClasspath - Compile classpath for source set 'main'.
++--- commons-io:commons-io:2.7
++--- org.codehaus.groovy:groovy-ant:3.0.5
+|    +--- org.codehaus.groovy:groovy:3.0.5
+|    \--- org.apache.ant:ant:1.10.8
++--- org.geoscript:geoscript-groovy:1.14.0
+|    +--- org.geotools:gt-main:22.0
+|    |    +--- org.geotools:gt-referencing:22.0
+|    |    |    +--- org.ejml:ejml-ddense:0.34
+|    |    |    |    \--- org.ejml:ejml-core:0.34
+|    |    |    +--- commons-pool:commons-pool:1.5.4
+|    |    |    +--- org.geotools:gt-metadata:22.0
+|    |    |    |    +--- org.geotools:gt-opengis:22.0
+|    |    |    |    |    +--- commons-pool:commons-pool:1.5.4
+|    |    |    |    |    +--- systems.uom:systems-common-java8:0.7.2
+|    |    |    |    |    |    +--- tec.uom:uom-se:1.0.8
+|    |    |    |    |    |    |    +--- javax.measure:unit-api:1.0
+|    |    |    |    |    |    |    \--- tec.uom.lib:uom-lib-common:1.0.2
+|    |    |    |    |    |    |         \--- javax.measure:unit-api:1.0
+|    |    |    |    |    |    +--- si.uom:si-quantity:0.7.1
+|    |    |    |    |    |    |    \--- javax.measure:unit-api:1.0
+|    |    |    |    |    |    \--- si.uom:si-units-java8:0.7.1
+|    |    |    |    |    |         +--- javax.measure:unit-api:1.0
+|    |    |    |    |    |         +--- tec.uom:uom-se:1.0.8 (*)
+|    |    |    |    |    |         \--- si.uom:si-quantity:0.7.1 (*)
+|    |    |    |    |    \--- javax.media:jai_core:1.1.3
+|    |    |    |    +--- javax.media:jai_core:1.1.3
+|    |    |    |    \--- org.apache.commons:commons-lang3:3.8.1
+|    |    |    +--- jgridshift:jgridshift:1.1
+|    |    |    |    +--- javax:javaee-api:7.0
+|    |    |    |    |    \--- com.sun.mail:javax.mail:1.5.0
+|    |    |    |    |         \--- javax.activation:activation:1.1
+|    |    |    |    \--- org.apache.axis:axis:1.4
+|    |    |    +--- net.sf.geographiclib:GeographicLib-Java:1.49
+|    |    |    \--- javax.media:jai_core:1.1.3
+|    |    +--- org.locationtech.jts:jts-core:1.16.1
+|    |    +--- org.jdom:jdom2:2.0.6
+|    |    +--- org.apache.commons:commons-text:1.6
+|    |    |    \--- org.apache.commons:commons-lang3:3.8.1
+|    |    +--- com.fasterxml.jackson.core:jackson-core:2.9.9 -> 2.10.3
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-epsg-hsql:22.0
+|    |    +--- org.geotools:gt-referencing:22.0 (*)
+|    |    +--- org.hsqldb:hsqldb:2.4.1
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-epsg-extension:22.0
+|    |    +--- org.geotools:gt-referencing:22.0 (*)
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-charts:22.0
+|    |    +--- jfree:eastwood:1.1.1-20090908
+|    |    |    +--- jfree:jfreechart:1.0.10
+|    |    |    |    \--- jfree:jcommon:1.0.13
+|    |    |    +--- jfree:jcommon:1.0.13
+|    |    |    \--- junit:junit:3.8.2
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-transform:22.0
+|    |    +--- org.geotools:gt-main:22.0 (*)
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-sql:2.5.8
+|    |    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-xml:2.5.8
+|    |    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-json:2.5.8
+|    |    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    \--- org.codehaus.groovy:groovy-swing:2.5.8
+|         \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
++--- io.micronaut.configuration:micronaut-openapi -> 1.5.0
+|    +--- io.swagger.core.v3:swagger-core:2.1.2
+|    |    +--- jakarta.xml.bind:jakarta.xml.bind-api:2.3.2
+|    |    |    \--- jakarta.activation:jakarta.activation-api:1.2.1
+|    |    +--- org.apache.commons:commons-lang3:3.7 -> 3.8.1
+|    |    +--- org.slf4j:slf4j-api:1.7.25 -> 1.7.26
+|    |    +--- com.fasterxml.jackson.core:jackson-annotations:2.10.1 -> 2.10.3
+|    |    +--- com.fasterxml.jackson.core:jackson-databind:2.10.1 -> 2.10.3
+|    |    |    +--- com.fasterxml.jackson.core:jackson-annotations:2.10.3
+|    |    |    \--- com.fasterxml.jackson.core:jackson-core:2.10.3
+|    |    +--- com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.1
+|    |    |    +--- org.yaml:snakeyaml:1.24 -> 1.26
+|    |    |    \--- com.fasterxml.jackson.core:jackson-core:2.10.1 -> 2.10.3
+|    |    +--- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.1 -> 2.10.3
+|    |    |    +--- com.fasterxml.jackson.core:jackson-annotations:2.10.3
+|    |    |    +--- com.fasterxml.jackson.core:jackson-core:2.10.3
+|    |    |    \--- com.fasterxml.jackson.core:jackson-databind:2.10.3 (*)
+|    |    +--- io.swagger.core.v3:swagger-annotations:2.1.2
+|    |    +--- io.swagger.core.v3:swagger-models:2.1.2
+|    |    |    \--- com.fasterxml.jackson.core:jackson-annotations:2.10.1 -> 2.10.3
+|    |    \--- jakarta.validation:jakarta.validation-api:2.0.2
+|    +--- io.swagger.core.v3:swagger-models:2.1.2 (*)
+|    \--- io.swagger.core.v3:swagger-annotations:2.1.2
++--- io.micronaut:micronaut-bom:1.3.7
+|    +--- io.micronaut:micronaut-http-client:1.3.7 (c)
+|    +--- io.micronaut:micronaut-http-server-netty:1.3.7 (c)
+|    +--- io.micronaut:micronaut-inject-groovy:1.3.7 (c)
+|    +--- io.micronaut:micronaut-management:1.3.7 (c)
+|    +--- io.micronaut:micronaut-validation:1.3.7 (c)
+|    +--- org.codehaus.groovy:groovy-ant:2.5.8 -> 3.0.5 (c)
+|    +--- javax.annotation:javax.annotation-api:1.3.2 (c)
+|    +--- io.micronaut:micronaut-runtime-groovy:1.1.1 (c)
+|    +--- io.micronaut.configuration:micronaut-openapi:1.5.0 (c)
+|    +--- io.swagger.core.v3:swagger-annotations:2.1.1 -> 2.1.2 (c)
+|    +--- io.micronaut.kubernetes:micronaut-kubernetes-discovery-client:1.1.0 (c)
+|    +--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5 (c)
+|    +--- org.codehaus.groovy:groovy-json:2.5.8 (c)
+|    +--- org.slf4j:slf4j-api:1.7.26 (c)
+|    +--- io.reactivex.rxjava2:rxjava:2.2.10 (c)
+|    +--- io.micronaut:micronaut-runtime:1.3.7 (c)
+|    +--- io.micronaut:micronaut-websocket:1.3.7 (c)
+|    +--- io.micronaut:micronaut-http-netty:1.3.7 (c)
+|    +--- io.netty:netty-handler-proxy:4.1.48.Final (c)
+|    +--- io.micronaut:micronaut-http-server:1.3.7 (c)
+|    +--- io.micronaut:micronaut-core:1.3.7 (c)
+|    +--- io.netty:netty-codec-http:4.1.48.Final (c)
+|    +--- io.micronaut:micronaut-inject:1.3.7 (c)
+|    +--- io.micronaut:micronaut-aop:1.3.7 (c)
+|    +--- io.micronaut:micronaut-router:1.3.7 (c)
+|    +--- io.micronaut:micronaut-http:1.3.7 (c)
+|    +--- javax.validation:validation-api:2.0.1.Final (c)
+|    +--- io.swagger.core.v3:swagger-core:2.1.1 -> 2.1.2 (c)
+|    +--- io.swagger.core.v3:swagger-models:2.1.1 -> 2.1.2 (c)
+|    +--- com.fasterxml.jackson.core:jackson-core:2.10.3 (c)
+|    +--- org.reactivestreams:reactive-streams:1.0.3 (c)
+|    +--- com.fasterxml.jackson.core:jackson-databind:2.10.1 -> 2.10.3 (c)
+|    +--- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.3 (c)
+|    +--- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.3 (c)
+|    +--- io.micronaut:micronaut-buffer-netty:1.3.7 (c)
+|    +--- io.netty:netty-handler:4.1.48.Final (c)
+|    +--- io.netty:netty-common:4.1.48.Final (c)
+|    +--- io.netty:netty-buffer:4.1.48.Final (c)
+|    +--- io.netty:netty-transport:4.1.48.Final (c)
+|    +--- io.netty:netty-codec:4.1.48.Final (c)
+|    +--- io.netty:netty-codec-socks:4.1.48.Final (c)
+|    +--- com.google.code.findbugs:jsr305:3.0.2 (c)
+|    +--- org.yaml:snakeyaml:1.26 (c)
+|    +--- com.fasterxml.jackson.core:jackson-annotations:2.10.3 (c)
+|    \--- io.netty:netty-resolver:4.1.48.Final (c)
++--- io.micronaut:micronaut-inject-groovy -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-inject:1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- javax.annotation:javax.annotation-api:1.3.2
+|    |    +--- javax.inject:javax.inject:1
+|    |    +--- io.micronaut:micronaut-core:1.3.7
+|    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    +--- org.reactivestreams:reactive-streams:1.0.3
+|    |    |    \--- com.google.code.findbugs:jsr305:3.0.2
+|    |    \--- org.yaml:snakeyaml:1.26
+|    +--- io.micronaut:micronaut-aop:1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    |    \--- io.micronaut:micronaut-core:1.3.7 (*)
+|    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
++--- io.micronaut:micronaut-management -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-router:1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    |    \--- io.micronaut:micronaut-http:1.3.7
+|    |         +--- org.slf4j:slf4j-api:1.7.26
+|    |         \--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    \--- io.micronaut:micronaut-runtime:1.3.7
+|         +--- org.slf4j:slf4j-api:1.7.26
+|         +--- io.micronaut:micronaut-http:1.3.7 (*)
+|         +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|         +--- io.micronaut:micronaut-aop:1.3.7 (*)
+|         +--- javax.validation:validation-api:2.0.1.Final
+|         +--- com.fasterxml.jackson.core:jackson-databind:2.10.1 -> 2.10.3 (*)
+|         +--- io.reactivex.rxjava2:rxjava:2.2.10
+|         |    \--- org.reactivestreams:reactive-streams:1.0.2 -> 1.0.3
+|         +--- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.3
+|         |    +--- com.fasterxml.jackson.core:jackson-core:2.10.3
+|         |    \--- com.fasterxml.jackson.core:jackson-databind:2.10.3 (*)
+|         \--- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.3 (*)
++--- io.swagger.core.v3:swagger-annotations -> 2.1.2
++--- io.micronaut.kubernetes:micronaut-kubernetes-discovery-client -> 1.1.0
++--- io.micronaut:micronaut-runtime-groovy -> 1.1.1
+|    +--- org.codehaus.groovy:groovy:2.5.6 -> 3.0.5
+|    \--- io.micronaut:micronaut-inject:1.1.2 -> 1.3.7 (*)
++--- io.micronaut:micronaut-validation -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    +--- io.micronaut:micronaut-http:1.3.7 (*)
+|    \--- javax.validation:validation-api:2.0.1.Final
++--- javax.annotation:javax.annotation-api -> 1.3.2
++--- io.micronaut:micronaut-http-server-netty -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-http-server:1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-websocket:1.3.7
+|    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    +--- io.micronaut:micronaut-http:1.3.7 (*)
+|    |    |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    |    |    +--- io.micronaut:micronaut-aop:1.3.7 (*)
+|    |    |    \--- io.reactivex.rxjava2:rxjava:2.2.10 (*)
+|    |    +--- io.micronaut:micronaut-runtime:1.3.7 (*)
+|    |    \--- io.micronaut:micronaut-router:1.3.7 (*)
+|    +--- io.micronaut:micronaut-core:1.3.7 (*)
+|    +--- io.micronaut:micronaut-http-netty:1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-http:1.3.7 (*)
+|    |    +--- io.micronaut:micronaut-websocket:1.3.7 (*)
+|    |    +--- io.micronaut:micronaut-buffer-netty:1.3.7
+|    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    +--- io.micronaut:micronaut-core:1.3.7 (*)
+|    |    |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    |    |    \--- io.netty:netty-buffer:4.1.48.Final
+|    |    |         \--- io.netty:netty-common:4.1.48.Final
+|    |    +--- io.netty:netty-codec-http:4.1.48.Final
+|    |    |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    +--- io.netty:netty-transport:4.1.48.Final
+|    |    |    |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    |    \--- io.netty:netty-resolver:4.1.48.Final
+|    |    |    |         \--- io.netty:netty-common:4.1.48.Final
+|    |    |    +--- io.netty:netty-codec:4.1.48.Final
+|    |    |    |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    |    \--- io.netty:netty-transport:4.1.48.Final (*)
+|    |    |    \--- io.netty:netty-handler:4.1.48.Final
+|    |    |         +--- io.netty:netty-common:4.1.48.Final
+|    |    |         +--- io.netty:netty-resolver:4.1.48.Final (*)
+|    |    |         +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |         +--- io.netty:netty-transport:4.1.48.Final (*)
+|    |    |         \--- io.netty:netty-codec:4.1.48.Final (*)
+|    |    \--- io.netty:netty-handler:4.1.48.Final (*)
+|    \--- io.netty:netty-codec-http:4.1.48.Final (*)
+\--- io.micronaut:micronaut-http-client -> 1.3.7
+     +--- org.slf4j:slf4j-api:1.7.26
+     +--- io.reactivex.rxjava2:rxjava:2.2.10 (*)
+     +--- io.micronaut:micronaut-runtime:1.3.7 (*)
+     +--- io.micronaut:micronaut-websocket:1.3.7 (*)
+     +--- io.micronaut:micronaut-http-netty:1.3.7 (*)
+     \--- io.netty:netty-handler-proxy:4.1.48.Final
+          +--- io.netty:netty-common:4.1.48.Final
+          +--- io.netty:netty-buffer:4.1.48.Final (*)
+          +--- io.netty:netty-transport:4.1.48.Final (*)
+          +--- io.netty:netty-codec:4.1.48.Final (*)
+          +--- io.netty:netty-codec-socks:4.1.48.Final
+          |    +--- io.netty:netty-common:4.1.48.Final
+          |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+          |    +--- io.netty:netty-transport:4.1.48.Final (*)
+          |    \--- io.netty:netty-codec:4.1.48.Final (*)
+          \--- io.netty:netty-codec-http:4.1.48.Final (*)
+
+compileOnly - Compile only dependencies for source set 'main'. (n)
++--- io.micronaut.configuration:micronaut-openapi (n)
++--- io.micronaut:micronaut-bom:1.3.7 (n)
+\--- io.micronaut:micronaut-inject-groovy (n)
+
+default - Configuration for default artifacts. (n)
+No dependencies
+
+developmentOnly
+No dependencies
+
+implementation - Implementation only dependencies for source set 'main'. (n)
++--- io.micronaut:micronaut-management (n)
++--- io.swagger.core.v3:swagger-annotations (n)
++--- io.micronaut.kubernetes:micronaut-kubernetes-discovery-client (n)
++--- io.micronaut:micronaut-bom:1.3.7 (n)
++--- io.micronaut:micronaut-runtime-groovy (n)
++--- io.micronaut:micronaut-validation (n)
++--- javax.annotation:javax.annotation-api (n)
++--- io.micronaut:micronaut-http-server-netty (n)
+\--- io.micronaut:micronaut-http-client (n)
+
+runtimeClasspath - Runtime classpath of source set 'main'.
++--- commons-io:commons-io:2.7
++--- org.codehaus.groovy:groovy-ant:3.0.5
+|    +--- org.codehaus.groovy:groovy:3.0.5
+|    +--- org.apache.ant:ant:1.10.8
+|    |    \--- org.apache.ant:ant-launcher:1.10.8
+|    +--- org.apache.ant:ant-junit:1.10.8
+|    |    \--- org.apache.ant:ant:1.10.8 (*)
+|    +--- org.apache.ant:ant-launcher:1.10.8
+|    +--- org.apache.ant:ant-antlr:1.10.8
+|    \--- org.codehaus.groovy:groovy-groovydoc:3.0.5
++--- org.geoscript:geoscript-groovy:1.14.0
+|    +--- org.geotools:gt-main:22.0
+|    |    +--- org.geotools:gt-referencing:22.0
+|    |    |    +--- org.ejml:ejml-ddense:0.34
+|    |    |    |    \--- org.ejml:ejml-core:0.34
+|    |    |    +--- commons-pool:commons-pool:1.5.4
+|    |    |    +--- org.geotools:gt-metadata:22.0
+|    |    |    |    +--- org.geotools:gt-opengis:22.0
+|    |    |    |    |    +--- commons-pool:commons-pool:1.5.4
+|    |    |    |    |    +--- systems.uom:systems-common-java8:0.7.2
+|    |    |    |    |    |    +--- tec.uom:uom-se:1.0.8
+|    |    |    |    |    |    |    +--- javax.measure:unit-api:1.0
+|    |    |    |    |    |    |    \--- tec.uom.lib:uom-lib-common:1.0.2
+|    |    |    |    |    |    |         \--- javax.measure:unit-api:1.0
+|    |    |    |    |    |    +--- si.uom:si-quantity:0.7.1
+|    |    |    |    |    |    |    \--- javax.measure:unit-api:1.0
+|    |    |    |    |    |    \--- si.uom:si-units-java8:0.7.1
+|    |    |    |    |    |         +--- javax.measure:unit-api:1.0
+|    |    |    |    |    |         +--- tec.uom:uom-se:1.0.8 (*)
+|    |    |    |    |    |         \--- si.uom:si-quantity:0.7.1 (*)
+|    |    |    |    |    \--- javax.media:jai_core:1.1.3
+|    |    |    |    +--- javax.media:jai_core:1.1.3
+|    |    |    |    \--- org.apache.commons:commons-lang3:3.8.1
+|    |    |    +--- jgridshift:jgridshift:1.1
+|    |    |    |    +--- javax:javaee-api:7.0
+|    |    |    |    |    \--- com.sun.mail:javax.mail:1.5.0
+|    |    |    |    |         \--- javax.activation:activation:1.1
+|    |    |    |    \--- org.apache.axis:axis:1.4
+|    |    |    +--- net.sf.geographiclib:GeographicLib-Java:1.49
+|    |    |    \--- javax.media:jai_core:1.1.3
+|    |    +--- org.locationtech.jts:jts-core:1.16.1
+|    |    +--- org.jdom:jdom2:2.0.6
+|    |    +--- org.apache.commons:commons-text:1.6
+|    |    |    \--- org.apache.commons:commons-lang3:3.8.1
+|    |    +--- com.fasterxml.jackson.core:jackson-core:2.9.9 -> 2.10.3
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-epsg-hsql:22.0
+|    |    +--- org.geotools:gt-referencing:22.0 (*)
+|    |    +--- org.hsqldb:hsqldb:2.4.1
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-epsg-extension:22.0
+|    |    +--- org.geotools:gt-referencing:22.0 (*)
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-charts:22.0
+|    |    +--- jfree:eastwood:1.1.1-20090908
+|    |    |    +--- jfree:jfreechart:1.0.10
+|    |    |    |    \--- jfree:jcommon:1.0.13
+|    |    |    +--- jfree:jcommon:1.0.13
+|    |    |    \--- junit:junit:3.8.2
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-transform:22.0
+|    |    +--- org.geotools:gt-main:22.0 (*)
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-sql:2.5.8
+|    |    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-xml:2.5.8
+|    |    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-json:2.5.8
+|    |    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    \--- org.codehaus.groovy:groovy-swing:2.5.8
+|         \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
++--- io.micronaut:micronaut-management -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-router:1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-inject:1.3.7
+|    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    +--- javax.annotation:javax.annotation-api:1.3.2
+|    |    |    +--- javax.inject:javax.inject:1
+|    |    |    +--- io.micronaut:micronaut-core:1.3.7
+|    |    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    |    +--- org.reactivestreams:reactive-streams:1.0.3
+|    |    |    |    \--- com.google.code.findbugs:jsr305:3.0.2
+|    |    |    \--- org.yaml:snakeyaml:1.26
+|    |    \--- io.micronaut:micronaut-http:1.3.7
+|    |         +--- org.slf4j:slf4j-api:1.7.26
+|    |         \--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    \--- io.micronaut:micronaut-runtime:1.3.7
+|         +--- org.slf4j:slf4j-api:1.7.26
+|         +--- io.micronaut:micronaut-http:1.3.7 (*)
+|         +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|         +--- io.micronaut:micronaut-aop:1.3.7
+|         |    +--- org.slf4j:slf4j-api:1.7.26
+|         |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|         |    \--- io.micronaut:micronaut-core:1.3.7 (*)
+|         +--- javax.validation:validation-api:2.0.1.Final
+|         +--- com.fasterxml.jackson.core:jackson-databind:2.10.1 -> 2.10.3
+|         |    +--- com.fasterxml.jackson.core:jackson-annotations:2.10.3
+|         |    \--- com.fasterxml.jackson.core:jackson-core:2.10.3
+|         +--- io.reactivex.rxjava2:rxjava:2.2.10
+|         |    \--- org.reactivestreams:reactive-streams:1.0.2 -> 1.0.3
+|         +--- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.3
+|         |    +--- com.fasterxml.jackson.core:jackson-core:2.10.3
+|         |    \--- com.fasterxml.jackson.core:jackson-databind:2.10.3 (*)
+|         \--- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.3
+|              +--- com.fasterxml.jackson.core:jackson-annotations:2.10.3
+|              +--- com.fasterxml.jackson.core:jackson-core:2.10.3
+|              \--- com.fasterxml.jackson.core:jackson-databind:2.10.3 (*)
++--- io.swagger.core.v3:swagger-annotations -> 2.1.1
++--- io.micronaut.kubernetes:micronaut-kubernetes-discovery-client -> 1.1.0
+|    +--- io.micronaut:micronaut-discovery-client -> 1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-http-client:1.3.7
+|    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    +--- io.reactivex.rxjava2:rxjava:2.2.10 (*)
+|    |    |    +--- io.micronaut:micronaut-runtime:1.3.7 (*)
+|    |    |    +--- io.micronaut:micronaut-websocket:1.3.7
+|    |    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    |    +--- io.micronaut:micronaut-http:1.3.7 (*)
+|    |    |    |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    |    |    |    +--- io.micronaut:micronaut-aop:1.3.7 (*)
+|    |    |    |    \--- io.reactivex.rxjava2:rxjava:2.2.10 (*)
+|    |    |    +--- io.micronaut:micronaut-http-netty:1.3.7
+|    |    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    |    +--- io.micronaut:micronaut-http:1.3.7 (*)
+|    |    |    |    +--- io.micronaut:micronaut-websocket:1.3.7 (*)
+|    |    |    |    +--- io.micronaut:micronaut-buffer-netty:1.3.7
+|    |    |    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    |    |    +--- io.micronaut:micronaut-core:1.3.7 (*)
+|    |    |    |    |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    |    |    |    |    \--- io.netty:netty-buffer:4.1.48.Final
+|    |    |    |    |         \--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    +--- io.netty:netty-codec-http:4.1.48.Final
+|    |    |    |    |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    |    |    +--- io.netty:netty-transport:4.1.48.Final
+|    |    |    |    |    |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    |    |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    |    |    |    \--- io.netty:netty-resolver:4.1.48.Final
+|    |    |    |    |    |         \--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    |    +--- io.netty:netty-codec:4.1.48.Final
+|    |    |    |    |    |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    |    |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    |    |    |    \--- io.netty:netty-transport:4.1.48.Final (*)
+|    |    |    |    |    \--- io.netty:netty-handler:4.1.48.Final
+|    |    |    |    |         +--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    |         +--- io.netty:netty-resolver:4.1.48.Final (*)
+|    |    |    |    |         +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    |    |         +--- io.netty:netty-transport:4.1.48.Final (*)
+|    |    |    |    |         \--- io.netty:netty-codec:4.1.48.Final (*)
+|    |    |    |    +--- io.netty:netty-handler:4.1.48.Final (*)
+|    |    |    |    \--- io.reactivex.rxjava2:rxjava:2.2.10 (*)
+|    |    |    \--- io.netty:netty-handler-proxy:4.1.48.Final
+|    |    |         +--- io.netty:netty-common:4.1.48.Final
+|    |    |         +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |         +--- io.netty:netty-transport:4.1.48.Final (*)
+|    |    |         +--- io.netty:netty-codec:4.1.48.Final (*)
+|    |    |         +--- io.netty:netty-codec-socks:4.1.48.Final
+|    |    |         |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |         |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |         |    +--- io.netty:netty-transport:4.1.48.Final (*)
+|    |    |         |    \--- io.netty:netty-codec:4.1.48.Final (*)
+|    |    |         \--- io.netty:netty-codec-http:4.1.48.Final (*)
+|    |    \--- io.micronaut:micronaut-validation:1.3.7
+|    |         +--- org.slf4j:slf4j-api:1.7.26
+|    |         +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    |         +--- io.micronaut:micronaut-http:1.3.7 (*)
+|    |         \--- javax.validation:validation-api:2.0.1.Final
+|    +--- io.micronaut:micronaut-runtime -> 1.3.7 (*)
+|    \--- io.micronaut:micronaut-bom:1.3.5 -> 1.3.7
+|         +--- io.micronaut:micronaut-http-client:1.3.7 (c)
+|         +--- io.micronaut:micronaut-http-server-netty:1.3.7 (c)
+|         +--- io.micronaut:micronaut-management:1.3.7 (c)
+|         +--- io.micronaut:micronaut-validation:1.3.7 (c)
+|         +--- org.codehaus.groovy:groovy-ant:2.5.8 -> 3.0.5 (c)
+|         +--- javax.annotation:javax.annotation-api:1.3.2 (c)
+|         +--- io.micronaut:micronaut-runtime-groovy:1.1.1 (c)
+|         +--- io.swagger.core.v3:swagger-annotations:2.1.1 (c)
+|         +--- io.micronaut.kubernetes:micronaut-kubernetes-discovery-client:1.1.0 (c)
+|         +--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5 (c)
+|         +--- org.codehaus.groovy:groovy-json:2.5.8 (c)
+|         +--- org.slf4j:slf4j-api:1.7.26 (c)
+|         +--- io.reactivex.rxjava2:rxjava:2.2.10 (c)
+|         +--- io.micronaut:micronaut-runtime:1.3.7 (c)
+|         +--- io.micronaut:micronaut-websocket:1.3.7 (c)
+|         +--- io.micronaut:micronaut-http-netty:1.3.7 (c)
+|         +--- io.netty:netty-handler-proxy:4.1.48.Final (c)
+|         +--- io.micronaut:micronaut-http-server:1.3.7 (c)
+|         +--- io.micronaut:micronaut-core:1.3.7 (c)
+|         +--- io.netty:netty-codec-http:4.1.48.Final (c)
+|         +--- io.micronaut:micronaut-router:1.3.7 (c)
+|         +--- io.micronaut:micronaut-inject:1.3.7 (c)
+|         +--- io.micronaut:micronaut-http:1.3.7 (c)
+|         +--- javax.validation:validation-api:2.0.1.Final (c)
+|         +--- io.micronaut:micronaut-discovery-client:1.3.7 (c)
+|         +--- com.fasterxml.jackson.core:jackson-core:2.10.3 (c)
+|         +--- org.reactivestreams:reactive-streams:1.0.3 (c)
+|         +--- io.micronaut:micronaut-aop:1.3.7 (c)
+|         +--- com.fasterxml.jackson.core:jackson-databind:2.10.1 -> 2.10.3 (c)
+|         +--- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.3 (c)
+|         +--- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.3 (c)
+|         +--- io.micronaut:micronaut-buffer-netty:1.3.7 (c)
+|         +--- io.netty:netty-handler:4.1.48.Final (c)
+|         +--- io.netty:netty-common:4.1.48.Final (c)
+|         +--- io.netty:netty-buffer:4.1.48.Final (c)
+|         +--- io.netty:netty-transport:4.1.48.Final (c)
+|         +--- io.netty:netty-codec:4.1.48.Final (c)
+|         +--- io.netty:netty-codec-socks:4.1.48.Final (c)
+|         +--- com.google.code.findbugs:jsr305:3.0.2 (c)
+|         +--- org.yaml:snakeyaml:1.26 (c)
+|         +--- com.fasterxml.jackson.core:jackson-annotations:2.10.3 (c)
+|         \--- io.netty:netty-resolver:4.1.48.Final (c)
++--- io.micronaut:micronaut-bom:1.3.7 (*)
++--- io.micronaut:micronaut-runtime-groovy -> 1.1.1
+|    +--- org.codehaus.groovy:groovy:2.5.6 -> 3.0.5
+|    \--- io.micronaut:micronaut-inject:1.1.2 -> 1.3.7 (*)
++--- io.micronaut:micronaut-validation -> 1.3.7 (*)
++--- javax.annotation:javax.annotation-api -> 1.3.2
++--- io.micronaut:micronaut-http-server-netty -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-http-server:1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-websocket:1.3.7 (*)
+|    |    +--- io.micronaut:micronaut-runtime:1.3.7 (*)
+|    |    \--- io.micronaut:micronaut-router:1.3.7 (*)
+|    +--- io.micronaut:micronaut-core:1.3.7 (*)
+|    +--- io.micronaut:micronaut-http-netty:1.3.7 (*)
+|    \--- io.netty:netty-codec-http:4.1.48.Final (*)
++--- io.micronaut:micronaut-http-client -> 1.3.7 (*)
+\--- ch.qos.logback:logback-classic:1.2.3
+     +--- ch.qos.logback:logback-core:1.2.3
+     \--- org.slf4j:slf4j-api:1.7.25 -> 1.7.26
+
+runtimeElements - Elements of runtime for main. (n)
+No dependencies
+
+runtimeOnly - Runtime only dependencies for source set 'main'. (n)
+\--- ch.qos.logback:logback-classic:1.2.3 (n)
+
+shadow
+No dependencies
+
+testAnnotationProcessor - Annotation processors and their dependencies for source set 'test'.
+No dependencies
+
+testCompileClasspath - Compile classpath for source set 'test'.
++--- commons-io:commons-io:2.7
++--- org.codehaus.groovy:groovy-ant:3.0.5
+|    +--- org.codehaus.groovy:groovy:3.0.5
+|    \--- org.apache.ant:ant:1.10.8
++--- org.geoscript:geoscript-groovy:1.14.0
+|    +--- org.geotools:gt-main:22.0
+|    |    +--- org.geotools:gt-referencing:22.0
+|    |    |    +--- org.ejml:ejml-ddense:0.34
+|    |    |    |    \--- org.ejml:ejml-core:0.34
+|    |    |    +--- commons-pool:commons-pool:1.5.4
+|    |    |    +--- org.geotools:gt-metadata:22.0
+|    |    |    |    +--- org.geotools:gt-opengis:22.0
+|    |    |    |    |    +--- commons-pool:commons-pool:1.5.4
+|    |    |    |    |    +--- systems.uom:systems-common-java8:0.7.2
+|    |    |    |    |    |    +--- tec.uom:uom-se:1.0.8
+|    |    |    |    |    |    |    +--- javax.measure:unit-api:1.0
+|    |    |    |    |    |    |    \--- tec.uom.lib:uom-lib-common:1.0.2
+|    |    |    |    |    |    |         \--- javax.measure:unit-api:1.0
+|    |    |    |    |    |    +--- si.uom:si-quantity:0.7.1
+|    |    |    |    |    |    |    \--- javax.measure:unit-api:1.0
+|    |    |    |    |    |    \--- si.uom:si-units-java8:0.7.1
+|    |    |    |    |    |         +--- javax.measure:unit-api:1.0
+|    |    |    |    |    |         +--- tec.uom:uom-se:1.0.8 (*)
+|    |    |    |    |    |         \--- si.uom:si-quantity:0.7.1 (*)
+|    |    |    |    |    \--- javax.media:jai_core:1.1.3
+|    |    |    |    +--- javax.media:jai_core:1.1.3
+|    |    |    |    \--- org.apache.commons:commons-lang3:3.8.1
+|    |    |    +--- jgridshift:jgridshift:1.1
+|    |    |    |    +--- javax:javaee-api:7.0
+|    |    |    |    |    \--- com.sun.mail:javax.mail:1.5.0
+|    |    |    |    |         \--- javax.activation:activation:1.1
+|    |    |    |    \--- org.apache.axis:axis:1.4
+|    |    |    +--- net.sf.geographiclib:GeographicLib-Java:1.49
+|    |    |    \--- javax.media:jai_core:1.1.3
+|    |    +--- org.locationtech.jts:jts-core:1.16.1
+|    |    +--- org.jdom:jdom2:2.0.6
+|    |    +--- org.apache.commons:commons-text:1.6
+|    |    |    \--- org.apache.commons:commons-lang3:3.8.1
+|    |    +--- com.fasterxml.jackson.core:jackson-core:2.9.9 -> 2.10.3
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-epsg-hsql:22.0
+|    |    +--- org.geotools:gt-referencing:22.0 (*)
+|    |    +--- org.hsqldb:hsqldb:2.4.1
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-epsg-extension:22.0
+|    |    +--- org.geotools:gt-referencing:22.0 (*)
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-charts:22.0
+|    |    +--- jfree:eastwood:1.1.1-20090908
+|    |    |    +--- jfree:jfreechart:1.0.10
+|    |    |    |    \--- jfree:jcommon:1.0.13
+|    |    |    +--- jfree:jcommon:1.0.13
+|    |    |    \--- junit:junit:3.8.2 -> 4.12
+|    |    |         \--- org.hamcrest:hamcrest-core:1.3
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-transform:22.0
+|    |    +--- org.geotools:gt-main:22.0 (*)
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-sql:2.5.8
+|    |    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-xml:2.5.8
+|    |    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-json:2.5.8
+|    |    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    \--- org.codehaus.groovy:groovy-swing:2.5.8
+|         \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
++--- io.micronaut:micronaut-management -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-router:1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-inject:1.3.7
+|    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    +--- javax.annotation:javax.annotation-api:1.3.2
+|    |    |    +--- javax.inject:javax.inject:1
+|    |    |    +--- io.micronaut:micronaut-core:1.3.7
+|    |    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    |    +--- org.reactivestreams:reactive-streams:1.0.3
+|    |    |    |    \--- com.google.code.findbugs:jsr305:3.0.2
+|    |    |    \--- org.yaml:snakeyaml:1.26
+|    |    \--- io.micronaut:micronaut-http:1.3.7
+|    |         +--- org.slf4j:slf4j-api:1.7.26
+|    |         \--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    \--- io.micronaut:micronaut-runtime:1.3.7
+|         +--- org.slf4j:slf4j-api:1.7.26
+|         +--- io.micronaut:micronaut-http:1.3.7 (*)
+|         +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|         +--- io.micronaut:micronaut-aop:1.3.7
+|         |    +--- org.slf4j:slf4j-api:1.7.26
+|         |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|         |    \--- io.micronaut:micronaut-core:1.3.7 (*)
+|         +--- javax.validation:validation-api:2.0.1.Final
+|         +--- com.fasterxml.jackson.core:jackson-databind:2.10.1 -> 2.10.3
+|         |    +--- com.fasterxml.jackson.core:jackson-annotations:2.10.3
+|         |    \--- com.fasterxml.jackson.core:jackson-core:2.10.3
+|         +--- io.reactivex.rxjava2:rxjava:2.2.10
+|         |    \--- org.reactivestreams:reactive-streams:1.0.2 -> 1.0.3
+|         +--- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.3
+|         |    +--- com.fasterxml.jackson.core:jackson-core:2.10.3
+|         |    \--- com.fasterxml.jackson.core:jackson-databind:2.10.3 (*)
+|         \--- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.3
+|              +--- com.fasterxml.jackson.core:jackson-annotations:2.10.3
+|              +--- com.fasterxml.jackson.core:jackson-core:2.10.3
+|              \--- com.fasterxml.jackson.core:jackson-databind:2.10.3 (*)
++--- io.swagger.core.v3:swagger-annotations -> 2.1.1
++--- io.micronaut.kubernetes:micronaut-kubernetes-discovery-client -> 1.1.0
++--- io.micronaut:micronaut-bom:1.3.7
+|    +--- io.micronaut:micronaut-http-client:1.3.7 (c)
+|    +--- io.micronaut:micronaut-http-server-netty:1.3.7 (c)
+|    +--- io.micronaut:micronaut-inject-groovy:1.3.7 (c)
+|    +--- io.micronaut:micronaut-management:1.3.7 (c)
+|    +--- io.micronaut:micronaut-validation:1.3.7 (c)
+|    +--- org.codehaus.groovy:groovy-ant:2.5.8 -> 3.0.5 (c)
+|    +--- javax.annotation:javax.annotation-api:1.3.2 (c)
+|    +--- io.micronaut:micronaut-runtime-groovy:1.1.1 (c)
+|    +--- io.micronaut.test:micronaut-test-spock:1.1.2 (c)
+|    +--- io.micronaut.test:micronaut-test-junit5:1.1.2 (c)
+|    +--- org.spockframework:spock-core:1.3-groovy-2.5 (c)
+|    +--- io.swagger.core.v3:swagger-annotations:2.1.1 (c)
+|    +--- io.micronaut.kubernetes:micronaut-kubernetes-discovery-client:1.1.0 (c)
+|    +--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5 (c)
+|    +--- org.codehaus.groovy:groovy-json:2.5.8 (c)
+|    +--- org.slf4j:slf4j-api:1.7.26 (c)
+|    +--- io.reactivex.rxjava2:rxjava:2.2.10 (c)
+|    +--- io.micronaut:micronaut-runtime:1.3.7 (c)
+|    +--- io.micronaut:micronaut-websocket:1.3.7 (c)
+|    +--- io.micronaut:micronaut-http-netty:1.3.7 (c)
+|    +--- io.netty:netty-handler-proxy:4.1.48.Final (c)
+|    +--- io.micronaut:micronaut-http-server:1.3.7 (c)
+|    +--- io.micronaut:micronaut-core:1.3.7 (c)
+|    +--- io.netty:netty-codec-http:4.1.48.Final (c)
+|    +--- io.micronaut:micronaut-inject:1.3.7 (c)
+|    +--- io.micronaut:micronaut-aop:1.3.7 (c)
+|    +--- io.micronaut:micronaut-router:1.3.7 (c)
+|    +--- io.micronaut:micronaut-http:1.3.7 (c)
+|    +--- javax.validation:validation-api:2.0.1.Final (c)
+|    +--- io.micronaut.test:micronaut-test-core:1.1.2 (c)
+|    +--- org.codehaus.groovy:groovy-templates:2.5.8 (c)
+|    +--- org.codehaus.groovy:groovy-test:2.5.8 (c)
+|    +--- com.fasterxml.jackson.core:jackson-core:2.10.3 (c)
+|    +--- org.reactivestreams:reactive-streams:1.0.3 (c)
+|    +--- com.fasterxml.jackson.core:jackson-databind:2.10.1 -> 2.10.3 (c)
+|    +--- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.3 (c)
+|    +--- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.3 (c)
+|    +--- io.micronaut:micronaut-buffer-netty:1.3.7 (c)
+|    +--- io.netty:netty-handler:4.1.48.Final (c)
+|    +--- io.netty:netty-common:4.1.48.Final (c)
+|    +--- io.netty:netty-buffer:4.1.48.Final (c)
+|    +--- io.netty:netty-transport:4.1.48.Final (c)
+|    +--- io.netty:netty-codec:4.1.48.Final (c)
+|    +--- io.netty:netty-codec-socks:4.1.48.Final (c)
+|    +--- com.google.code.findbugs:jsr305:3.0.2 (c)
+|    +--- org.yaml:snakeyaml:1.26 (c)
+|    +--- com.fasterxml.jackson.core:jackson-annotations:2.10.3 (c)
+|    \--- io.netty:netty-resolver:4.1.48.Final (c)
++--- io.micronaut:micronaut-runtime-groovy -> 1.1.1
+|    +--- org.codehaus.groovy:groovy:2.5.6 -> 3.0.5
+|    \--- io.micronaut:micronaut-inject:1.1.2 -> 1.3.7 (*)
++--- io.micronaut:micronaut-validation -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    +--- io.micronaut:micronaut-http:1.3.7 (*)
+|    \--- javax.validation:validation-api:2.0.1.Final
++--- javax.annotation:javax.annotation-api -> 1.3.2
++--- io.micronaut:micronaut-http-server-netty -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-http-server:1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-websocket:1.3.7
+|    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    +--- io.micronaut:micronaut-http:1.3.7 (*)
+|    |    |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    |    |    +--- io.micronaut:micronaut-aop:1.3.7 (*)
+|    |    |    \--- io.reactivex.rxjava2:rxjava:2.2.10 (*)
+|    |    +--- io.micronaut:micronaut-runtime:1.3.7 (*)
+|    |    \--- io.micronaut:micronaut-router:1.3.7 (*)
+|    +--- io.micronaut:micronaut-core:1.3.7 (*)
+|    +--- io.micronaut:micronaut-http-netty:1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-http:1.3.7 (*)
+|    |    +--- io.micronaut:micronaut-websocket:1.3.7 (*)
+|    |    +--- io.micronaut:micronaut-buffer-netty:1.3.7
+|    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    +--- io.micronaut:micronaut-core:1.3.7 (*)
+|    |    |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    |    |    \--- io.netty:netty-buffer:4.1.48.Final
+|    |    |         \--- io.netty:netty-common:4.1.48.Final
+|    |    +--- io.netty:netty-codec-http:4.1.48.Final
+|    |    |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    +--- io.netty:netty-transport:4.1.48.Final
+|    |    |    |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    |    \--- io.netty:netty-resolver:4.1.48.Final
+|    |    |    |         \--- io.netty:netty-common:4.1.48.Final
+|    |    |    +--- io.netty:netty-codec:4.1.48.Final
+|    |    |    |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    |    \--- io.netty:netty-transport:4.1.48.Final (*)
+|    |    |    \--- io.netty:netty-handler:4.1.48.Final
+|    |    |         +--- io.netty:netty-common:4.1.48.Final
+|    |    |         +--- io.netty:netty-resolver:4.1.48.Final (*)
+|    |    |         +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |         +--- io.netty:netty-transport:4.1.48.Final (*)
+|    |    |         \--- io.netty:netty-codec:4.1.48.Final (*)
+|    |    \--- io.netty:netty-handler:4.1.48.Final (*)
+|    \--- io.netty:netty-codec-http:4.1.48.Final (*)
++--- io.micronaut:micronaut-http-client -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.reactivex.rxjava2:rxjava:2.2.10 (*)
+|    +--- io.micronaut:micronaut-runtime:1.3.7 (*)
+|    +--- io.micronaut:micronaut-websocket:1.3.7 (*)
+|    +--- io.micronaut:micronaut-http-netty:1.3.7 (*)
+|    \--- io.netty:netty-handler-proxy:4.1.48.Final
+|         +--- io.netty:netty-common:4.1.48.Final
+|         +--- io.netty:netty-buffer:4.1.48.Final (*)
+|         +--- io.netty:netty-transport:4.1.48.Final (*)
+|         +--- io.netty:netty-codec:4.1.48.Final (*)
+|         +--- io.netty:netty-codec-socks:4.1.48.Final
+|         |    +--- io.netty:netty-common:4.1.48.Final
+|         |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|         |    +--- io.netty:netty-transport:4.1.48.Final (*)
+|         |    \--- io.netty:netty-codec:4.1.48.Final (*)
+|         \--- io.netty:netty-codec-http:4.1.48.Final (*)
++--- org.spockframework:spock-core -> 1.3-groovy-2.5
+|    +--- org.codehaus.groovy:groovy:2.5.4 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-json:2.5.4 -> 2.5.8 (*)
+|    +--- org.codehaus.groovy:groovy-nio:2.5.4
+|    |    \--- org.codehaus.groovy:groovy:2.5.4 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-macro:2.5.4
+|    |    \--- org.codehaus.groovy:groovy:2.5.4 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-templates:2.5.4 -> 2.5.8
+|    |    +--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    |    \--- org.codehaus.groovy:groovy-xml:2.5.8 (*)
+|    +--- org.codehaus.groovy:groovy-test:2.5.4 -> 2.5.8
+|    |    +--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    |    \--- junit:junit:4.12 (*)
+|    +--- org.codehaus.groovy:groovy-sql:2.5.4 -> 2.5.8 (*)
+|    +--- org.codehaus.groovy:groovy-xml:2.5.4 -> 2.5.8 (*)
+|    \--- junit:junit:4.12 (*)
++--- io.micronaut:micronaut-inject-groovy -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    +--- io.micronaut:micronaut-aop:1.3.7 (*)
+|    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
++--- io.micronaut.test:micronaut-test-spock -> 1.1.2
+|    \--- io.micronaut.test:micronaut-test-core:1.1.2
+\--- io.micronaut.test:micronaut-test-junit5 -> 1.1.2
+     \--- io.micronaut.test:micronaut-test-core:1.1.2
+
+testCompileOnly - Compile only dependencies for source set 'test'. (n)
+\--- io.micronaut:micronaut-bom:1.3.7 (n)
+
+testImplementation - Implementation only dependencies for source set 'test'. (n)
++--- io.micronaut:micronaut-bom:1.3.7 (n)
++--- org.spockframework:spock-core (n)
++--- io.micronaut:micronaut-inject-groovy (n)
++--- io.micronaut.test:micronaut-test-spock (n)
+\--- io.micronaut.test:micronaut-test-junit5 (n)
+
+testRuntimeClasspath - Runtime classpath of source set 'test'.
++--- commons-io:commons-io:2.7
++--- org.codehaus.groovy:groovy-ant:3.0.5
+|    +--- org.codehaus.groovy:groovy:3.0.5
+|    +--- org.apache.ant:ant:1.10.8
+|    |    \--- org.apache.ant:ant-launcher:1.10.8
+|    +--- org.apache.ant:ant-junit:1.10.8
+|    |    \--- org.apache.ant:ant:1.10.8 (*)
+|    +--- org.apache.ant:ant-launcher:1.10.8
+|    +--- org.apache.ant:ant-antlr:1.10.8
+|    \--- org.codehaus.groovy:groovy-groovydoc:3.0.5
++--- org.geoscript:geoscript-groovy:1.14.0
+|    +--- org.geotools:gt-main:22.0
+|    |    +--- org.geotools:gt-referencing:22.0
+|    |    |    +--- org.ejml:ejml-ddense:0.34
+|    |    |    |    \--- org.ejml:ejml-core:0.34
+|    |    |    +--- commons-pool:commons-pool:1.5.4
+|    |    |    +--- org.geotools:gt-metadata:22.0
+|    |    |    |    +--- org.geotools:gt-opengis:22.0
+|    |    |    |    |    +--- commons-pool:commons-pool:1.5.4
+|    |    |    |    |    +--- systems.uom:systems-common-java8:0.7.2
+|    |    |    |    |    |    +--- tec.uom:uom-se:1.0.8
+|    |    |    |    |    |    |    +--- javax.measure:unit-api:1.0
+|    |    |    |    |    |    |    \--- tec.uom.lib:uom-lib-common:1.0.2
+|    |    |    |    |    |    |         \--- javax.measure:unit-api:1.0
+|    |    |    |    |    |    +--- si.uom:si-quantity:0.7.1
+|    |    |    |    |    |    |    \--- javax.measure:unit-api:1.0
+|    |    |    |    |    |    \--- si.uom:si-units-java8:0.7.1
+|    |    |    |    |    |         +--- javax.measure:unit-api:1.0
+|    |    |    |    |    |         +--- tec.uom:uom-se:1.0.8 (*)
+|    |    |    |    |    |         \--- si.uom:si-quantity:0.7.1 (*)
+|    |    |    |    |    \--- javax.media:jai_core:1.1.3
+|    |    |    |    +--- javax.media:jai_core:1.1.3
+|    |    |    |    \--- org.apache.commons:commons-lang3:3.8.1
+|    |    |    +--- jgridshift:jgridshift:1.1
+|    |    |    |    +--- javax:javaee-api:7.0
+|    |    |    |    |    \--- com.sun.mail:javax.mail:1.5.0
+|    |    |    |    |         \--- javax.activation:activation:1.1
+|    |    |    |    \--- org.apache.axis:axis:1.4
+|    |    |    +--- net.sf.geographiclib:GeographicLib-Java:1.49
+|    |    |    \--- javax.media:jai_core:1.1.3
+|    |    +--- org.locationtech.jts:jts-core:1.16.1
+|    |    +--- org.jdom:jdom2:2.0.6
+|    |    +--- org.apache.commons:commons-text:1.6
+|    |    |    \--- org.apache.commons:commons-lang3:3.8.1
+|    |    +--- com.fasterxml.jackson.core:jackson-core:2.9.9 -> 2.10.3
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-epsg-hsql:22.0
+|    |    +--- org.geotools:gt-referencing:22.0 (*)
+|    |    +--- org.hsqldb:hsqldb:2.4.1
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-epsg-extension:22.0
+|    |    +--- org.geotools:gt-referencing:22.0 (*)
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-charts:22.0
+|    |    +--- jfree:eastwood:1.1.1-20090908
+|    |    |    +--- jfree:jfreechart:1.0.10
+|    |    |    |    \--- jfree:jcommon:1.0.13
+|    |    |    +--- jfree:jcommon:1.0.13
+|    |    |    \--- junit:junit:3.8.2 -> 4.12
+|    |    |         \--- org.hamcrest:hamcrest-core:1.3
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.geotools:gt-transform:22.0
+|    |    +--- org.geotools:gt-main:22.0 (*)
+|    |    \--- javax.media:jai_core:1.1.3
+|    +--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-sql:2.5.8
+|    |    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-xml:2.5.8
+|    |    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-json:2.5.8
+|    |    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    \--- org.codehaus.groovy:groovy-swing:2.5.8
+|         \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
++--- io.micronaut:micronaut-management -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-router:1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-inject:1.3.7
+|    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    +--- javax.annotation:javax.annotation-api:1.3.2
+|    |    |    +--- javax.inject:javax.inject:1
+|    |    |    +--- io.micronaut:micronaut-core:1.3.7
+|    |    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    |    +--- org.reactivestreams:reactive-streams:1.0.3
+|    |    |    |    \--- com.google.code.findbugs:jsr305:3.0.2
+|    |    |    \--- org.yaml:snakeyaml:1.26
+|    |    \--- io.micronaut:micronaut-http:1.3.7
+|    |         +--- org.slf4j:slf4j-api:1.7.26
+|    |         \--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    \--- io.micronaut:micronaut-runtime:1.3.7
+|         +--- org.slf4j:slf4j-api:1.7.26
+|         +--- io.micronaut:micronaut-http:1.3.7 (*)
+|         +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|         +--- io.micronaut:micronaut-aop:1.3.7
+|         |    +--- org.slf4j:slf4j-api:1.7.26
+|         |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|         |    \--- io.micronaut:micronaut-core:1.3.7 (*)
+|         +--- javax.validation:validation-api:2.0.1.Final
+|         +--- com.fasterxml.jackson.core:jackson-databind:2.10.1 -> 2.10.3
+|         |    +--- com.fasterxml.jackson.core:jackson-annotations:2.10.3
+|         |    \--- com.fasterxml.jackson.core:jackson-core:2.10.3
+|         +--- io.reactivex.rxjava2:rxjava:2.2.10
+|         |    \--- org.reactivestreams:reactive-streams:1.0.2 -> 1.0.3
+|         +--- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.3
+|         |    +--- com.fasterxml.jackson.core:jackson-core:2.10.3
+|         |    \--- com.fasterxml.jackson.core:jackson-databind:2.10.3 (*)
+|         \--- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.3
+|              +--- com.fasterxml.jackson.core:jackson-annotations:2.10.3
+|              +--- com.fasterxml.jackson.core:jackson-core:2.10.3
+|              \--- com.fasterxml.jackson.core:jackson-databind:2.10.3 (*)
++--- io.swagger.core.v3:swagger-annotations -> 2.1.1
++--- io.micronaut.kubernetes:micronaut-kubernetes-discovery-client -> 1.1.0
+|    +--- io.micronaut:micronaut-discovery-client -> 1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-http-client:1.3.7
+|    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    +--- io.reactivex.rxjava2:rxjava:2.2.10 (*)
+|    |    |    +--- io.micronaut:micronaut-runtime:1.3.7 (*)
+|    |    |    +--- io.micronaut:micronaut-websocket:1.3.7
+|    |    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    |    +--- io.micronaut:micronaut-http:1.3.7 (*)
+|    |    |    |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    |    |    |    +--- io.micronaut:micronaut-aop:1.3.7 (*)
+|    |    |    |    \--- io.reactivex.rxjava2:rxjava:2.2.10 (*)
+|    |    |    +--- io.micronaut:micronaut-http-netty:1.3.7
+|    |    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    |    +--- io.micronaut:micronaut-http:1.3.7 (*)
+|    |    |    |    +--- io.micronaut:micronaut-websocket:1.3.7 (*)
+|    |    |    |    +--- io.micronaut:micronaut-buffer-netty:1.3.7
+|    |    |    |    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    |    |    |    +--- io.micronaut:micronaut-core:1.3.7 (*)
+|    |    |    |    |    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    |    |    |    |    \--- io.netty:netty-buffer:4.1.48.Final
+|    |    |    |    |         \--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    +--- io.netty:netty-codec-http:4.1.48.Final
+|    |    |    |    |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    |    |    +--- io.netty:netty-transport:4.1.48.Final
+|    |    |    |    |    |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    |    |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    |    |    |    \--- io.netty:netty-resolver:4.1.48.Final
+|    |    |    |    |    |         \--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    |    +--- io.netty:netty-codec:4.1.48.Final
+|    |    |    |    |    |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    |    |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    |    |    |    \--- io.netty:netty-transport:4.1.48.Final (*)
+|    |    |    |    |    \--- io.netty:netty-handler:4.1.48.Final
+|    |    |    |    |         +--- io.netty:netty-common:4.1.48.Final
+|    |    |    |    |         +--- io.netty:netty-resolver:4.1.48.Final (*)
+|    |    |    |    |         +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |    |    |         +--- io.netty:netty-transport:4.1.48.Final (*)
+|    |    |    |    |         \--- io.netty:netty-codec:4.1.48.Final (*)
+|    |    |    |    +--- io.netty:netty-handler:4.1.48.Final (*)
+|    |    |    |    \--- io.reactivex.rxjava2:rxjava:2.2.10 (*)
+|    |    |    \--- io.netty:netty-handler-proxy:4.1.48.Final
+|    |    |         +--- io.netty:netty-common:4.1.48.Final
+|    |    |         +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |         +--- io.netty:netty-transport:4.1.48.Final (*)
+|    |    |         +--- io.netty:netty-codec:4.1.48.Final (*)
+|    |    |         +--- io.netty:netty-codec-socks:4.1.48.Final
+|    |    |         |    +--- io.netty:netty-common:4.1.48.Final
+|    |    |         |    +--- io.netty:netty-buffer:4.1.48.Final (*)
+|    |    |         |    +--- io.netty:netty-transport:4.1.48.Final (*)
+|    |    |         |    \--- io.netty:netty-codec:4.1.48.Final (*)
+|    |    |         \--- io.netty:netty-codec-http:4.1.48.Final (*)
+|    |    \--- io.micronaut:micronaut-validation:1.3.7
+|    |         +--- org.slf4j:slf4j-api:1.7.26
+|    |         +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    |         +--- io.micronaut:micronaut-http:1.3.7 (*)
+|    |         \--- javax.validation:validation-api:2.0.1.Final
+|    +--- io.micronaut:micronaut-runtime -> 1.3.7 (*)
+|    \--- io.micronaut:micronaut-bom:1.3.5 -> 1.3.7
+|         +--- io.micronaut:micronaut-http-client:1.3.7 (c)
+|         +--- io.micronaut:micronaut-http-server-netty:1.3.7 (c)
+|         +--- io.micronaut:micronaut-inject-groovy:1.3.7 (c)
+|         +--- io.micronaut:micronaut-management:1.3.7 (c)
+|         +--- io.micronaut:micronaut-validation:1.3.7 (c)
+|         +--- org.codehaus.groovy:groovy-ant:2.5.8 -> 3.0.5 (c)
+|         +--- javax.annotation:javax.annotation-api:1.3.2 (c)
+|         +--- io.micronaut:micronaut-runtime-groovy:1.1.1 (c)
+|         +--- io.micronaut.test:micronaut-test-spock:1.1.2 (c)
+|         +--- io.micronaut.test:micronaut-test-junit5:1.1.2 (c)
+|         +--- org.spockframework:spock-core:1.3-groovy-2.5 (c)
+|         +--- io.swagger.core.v3:swagger-annotations:2.1.1 (c)
+|         +--- io.micronaut.kubernetes:micronaut-kubernetes-discovery-client:1.1.0 (c)
+|         +--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5 (c)
+|         +--- org.codehaus.groovy:groovy-json:2.5.8 (c)
+|         +--- org.slf4j:slf4j-api:1.7.26 (c)
+|         +--- io.reactivex.rxjava2:rxjava:2.2.10 (c)
+|         +--- io.micronaut:micronaut-runtime:1.3.7 (c)
+|         +--- io.micronaut:micronaut-websocket:1.3.7 (c)
+|         +--- io.micronaut:micronaut-http-netty:1.3.7 (c)
+|         +--- io.netty:netty-handler-proxy:4.1.48.Final (c)
+|         +--- io.micronaut:micronaut-http-server:1.3.7 (c)
+|         +--- io.micronaut:micronaut-core:1.3.7 (c)
+|         +--- io.netty:netty-codec-http:4.1.48.Final (c)
+|         +--- io.micronaut:micronaut-inject:1.3.7 (c)
+|         +--- io.micronaut:micronaut-aop:1.3.7 (c)
+|         +--- io.micronaut:micronaut-router:1.3.7 (c)
+|         +--- io.micronaut:micronaut-http:1.3.7 (c)
+|         +--- javax.validation:validation-api:2.0.1.Final (c)
+|         +--- io.micronaut.test:micronaut-test-core:1.1.2 (c)
+|         +--- org.junit.jupiter:junit-jupiter-api:5.6.0 (c)
+|         +--- org.codehaus.groovy:groovy-templates:2.5.8 (c)
+|         +--- org.codehaus.groovy:groovy-test:2.5.8 (c)
+|         +--- io.micronaut:micronaut-discovery-client:1.3.7 (c)
+|         +--- com.fasterxml.jackson.core:jackson-core:2.10.3 (c)
+|         +--- org.reactivestreams:reactive-streams:1.0.3 (c)
+|         +--- com.fasterxml.jackson.core:jackson-databind:2.10.1 -> 2.10.3 (c)
+|         +--- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.3 (c)
+|         +--- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.3 (c)
+|         +--- io.micronaut:micronaut-buffer-netty:1.3.7 (c)
+|         +--- io.netty:netty-handler:4.1.48.Final (c)
+|         +--- io.netty:netty-common:4.1.48.Final (c)
+|         +--- io.netty:netty-buffer:4.1.48.Final (c)
+|         +--- io.netty:netty-transport:4.1.48.Final (c)
+|         +--- io.netty:netty-codec:4.1.48.Final (c)
+|         +--- io.netty:netty-codec-socks:4.1.48.Final (c)
+|         +--- com.google.code.findbugs:jsr305:3.0.2 (c)
+|         +--- org.yaml:snakeyaml:1.26 (c)
+|         +--- com.fasterxml.jackson.core:jackson-annotations:2.10.3 (c)
+|         \--- io.netty:netty-resolver:4.1.48.Final (c)
++--- io.micronaut:micronaut-bom:1.3.7 (*)
++--- io.micronaut:micronaut-runtime-groovy -> 1.1.1
+|    +--- org.codehaus.groovy:groovy:2.5.6 -> 3.0.5
+|    \--- io.micronaut:micronaut-inject:1.1.2 -> 1.3.7 (*)
++--- io.micronaut:micronaut-validation -> 1.3.7 (*)
++--- javax.annotation:javax.annotation-api -> 1.3.2
++--- io.micronaut:micronaut-http-server-netty -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-http-server:1.3.7
+|    |    +--- org.slf4j:slf4j-api:1.7.26
+|    |    +--- io.micronaut:micronaut-websocket:1.3.7 (*)
+|    |    +--- io.micronaut:micronaut-runtime:1.3.7 (*)
+|    |    \--- io.micronaut:micronaut-router:1.3.7 (*)
+|    +--- io.micronaut:micronaut-core:1.3.7 (*)
+|    +--- io.micronaut:micronaut-http-netty:1.3.7 (*)
+|    \--- io.netty:netty-codec-http:4.1.48.Final (*)
++--- io.micronaut:micronaut-http-client -> 1.3.7 (*)
++--- ch.qos.logback:logback-classic:1.2.3
+|    +--- ch.qos.logback:logback-core:1.2.3
+|    \--- org.slf4j:slf4j-api:1.7.25 -> 1.7.26
++--- org.spockframework:spock-core -> 1.3-groovy-2.5
+|    +--- org.codehaus.groovy:groovy:2.5.4 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-json:2.5.4 -> 2.5.8 (*)
+|    +--- org.codehaus.groovy:groovy-nio:2.5.4
+|    |    \--- org.codehaus.groovy:groovy:2.5.4 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-macro:2.5.4
+|    |    \--- org.codehaus.groovy:groovy:2.5.4 -> 3.0.5
+|    +--- org.codehaus.groovy:groovy-templates:2.5.4 -> 2.5.8
+|    |    +--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    |    \--- org.codehaus.groovy:groovy-xml:2.5.8 (*)
+|    +--- org.codehaus.groovy:groovy-test:2.5.4 -> 2.5.8
+|    |    +--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
+|    |    \--- junit:junit:4.12 (*)
+|    +--- org.codehaus.groovy:groovy-sql:2.5.4 -> 2.5.8 (*)
+|    +--- org.codehaus.groovy:groovy-xml:2.5.4 -> 2.5.8 (*)
+|    \--- junit:junit:4.12 (*)
++--- io.micronaut:micronaut-inject-groovy -> 1.3.7
+|    +--- org.slf4j:slf4j-api:1.7.26
+|    +--- io.micronaut:micronaut-inject:1.3.7 (*)
+|    +--- io.micronaut:micronaut-aop:1.3.7 (*)
+|    \--- org.codehaus.groovy:groovy:2.5.8 -> 3.0.5
++--- io.micronaut.test:micronaut-test-spock -> 1.1.2
+|    +--- io.micronaut.test:micronaut-test-core:1.1.2
+|    |    +--- io.micronaut:micronaut-inject:1.1.4 -> 1.3.7 (*)
+|    |    \--- io.micronaut:micronaut-runtime:1.1.4 -> 1.3.7 (*)
+|    +--- io.micronaut:micronaut-inject:1.1.4 -> 1.3.7 (*)
+|    +--- io.micronaut:micronaut-runtime:1.1.4 -> 1.3.7 (*)
+|    \--- org.spockframework:spock-core:1.2-groovy-2.4 -> 1.3-groovy-2.5 (*)
+\--- io.micronaut.test:micronaut-test-junit5 -> 1.1.2
+     +--- io.micronaut.test:micronaut-test-core:1.1.2 (*)
+     +--- io.micronaut:micronaut-inject:1.1.4 -> 1.3.7 (*)
+     +--- io.micronaut:micronaut-runtime:1.1.4 -> 1.3.7 (*)
+     \--- org.junit.jupiter:junit-jupiter-api:5.5.0 -> 5.6.0
+          +--- org.junit:junit-bom:5.6.0
+          |    +--- org.junit.jupiter:junit-jupiter-api:5.6.0 (c)
+          |    \--- org.junit.platform:junit-platform-commons:1.6.0 (c)
+          +--- org.apiguardian:apiguardian-api:1.1.0
+          +--- org.opentest4j:opentest4j:1.2.0
+          \--- org.junit.platform:junit-platform-commons:1.6.0
+               +--- org.junit:junit-bom:5.6.0 (*)
+               \--- org.apiguardian:apiguardian-api:1.1.0
+
+testRuntimeOnly - Runtime only dependencies for source set 'test'. (n)
+No dependencies
+
+(c) - dependency constraint
+(*) - dependencies omitted (listed previously)
+
+(n) - Not resolved (configuration is not meant to be resolved)
+
+A web-based, searchable dependency report is available by adding the --scan option.
