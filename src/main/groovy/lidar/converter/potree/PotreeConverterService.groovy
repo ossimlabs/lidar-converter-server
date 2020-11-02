@@ -18,8 +18,6 @@ class PotreeConverterService {
     @Value('${lidar.converter.potree.outputDirectory}')
     String outputDirectory
 
-
-
     PotreeConverterService(LidarIndexerClient lidarIndexerClient, PdalService pdalService, ZipService zipService) {
         this.lidarIndexerClient = lidarIndexerClient
         this.pdalService = pdalService
