@@ -25,12 +25,14 @@ class PotreeConverterService {
     }
 
     String run(File inputFile) {
+        String inputFileFullPath = inputFile.getAbsolutePath()
+
         def outputFile = "/potree/${FilenameUtils.getBaseName(inputFile.name)}"
         String outputLocation = new File(outputDirectory, outputFile)
 
         def cmd = [
                 '/usr/local/bin/PotreeConverter',
-                '--source', "${inputFile}",
+                '--source', "${inputFileFullPath}",
                 '--outdir', "${outputLocation}",
                 '--generate-page', 'index',
                 '--material', 'RGB',
@@ -64,9 +66,14 @@ class PotreeConverterService {
             lidarIndexerClient.postLidarProduct(lidarProduct)
             println stdout.toString()
 
+            // Clean up after the file has been successfully converted
+            inputFile.delete()
+
             return stdout.toString()
         } else {
+            inputFile.delete()
             return stderr.toString()
+
         }
     }
 }

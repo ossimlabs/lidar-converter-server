@@ -1,7 +1,10 @@
 micronaut:
   application:
     name: lidar-converter-server
-#  server:
+  server:
+    max-request-size: '1000MB'
+    multipart:
+      max-file-size: '1000MB'
 #    context-path: /lidar-converter-server
   router:
     static-resources:
@@ -19,6 +22,7 @@ micronaut:
         mapping: /swagger-ui/**
 lidar:
   converter:
+    inputDirectory: ${LIDAR_CONVERTER_INPUT_DIRECTORY:/input}
     potree:
 #      outputDirectory: /data/lidar
       outputDirectory: ${LIDAR_CONVERTER_OUTPUT_DIRECTORY:/output}
