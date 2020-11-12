@@ -2,6 +2,9 @@ micronaut:
   application:
     name: lidar-converter-server
   server:
+    port: 8080
+    cors:
+      enabled: true
     max-request-size: '1000MB'
     multipart:
       max-file-size: '1000MB'
