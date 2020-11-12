@@ -7,7 +7,9 @@ import io.micronaut.http.annotation.Post
 import io.micronaut.http.MediaType
 import lidar.converter.entwine.EntwineConverterService
 import lidar.converter.potree.PotreeConverterService
+import org.apache.commons.io.FilenameUtils
 
+import javax.validation.constraints.NotNull
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
@@ -26,30 +28,44 @@ class UploadController {
         this.entwineConverterService = entwineConverterService
     }
 
+    @NotNull
     @Post(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA, produces = MediaType.TEXT_PLAIN)
     HttpResponse<String> uploadBytes(byte[] file, String fileName, String fileType) {
-        try {
 
-            File tmpFile = new File("${inputDirectory}/${fileName}")
-            Path path = Paths.get(tmpFile.absolutePath)
-            Files.write(path, file)
+        String fileExtension = FilenameUtils.getExtension(fileName).trim()
 
-            if (fileType == "potree") {
-                println "Potree uploaded." // TODO: logger
-                potreeConverterService.run(tmpFile)
+        // Only convert lidar ".las" files
+        if(fileExtension == "las" || fileExtension == "laz"){
 
-            } else {
-                println "Entwine uploaded" // TODO: logger
-                entwineConverterService.run(tmpFile)
+            try {
+
+                File tmpFile = new File("${inputDirectory}/${fileName}")
+                Path path = Paths.get(tmpFile.absolutePath)
+                Files.write(path, file)
+
+                Thread.start{
+                    if (fileType == "potree") {
+                        println "Potree uploaded." // TODO: logger
+                        potreeConverterService.run(tmpFile)
+
+                    } else {
+                        println "Entwine uploaded" // TODO: logger
+                        entwineConverterService.run(tmpFile)
+                    }
+                }
+
+                HttpResponse.ok("File uploaded successfully.")
+
+            } catch (IOException exception) {
+                println exception // TODO: logger
+                HttpResponse.badRequest("Upload Failed")
+
             }
-
-            HttpResponse.ok("File uploaded successfully.")
-
-        } catch (IOException exception) {
-            println exception // TODO: logger
-            HttpResponse.badRequest("Upload Failed")
-
+        } else {
+            HttpResponse.badRequest("File type not allowed")
         }
+
+
     }
 
 
