@@ -34,7 +34,7 @@ class UploadController {
 
         String fileExtension = FilenameUtils.getExtension(fileName).trim()
 
-        // Only convert lidar ".las" files
+        // Only convert lidar ".las" or ".laz" files
         if(fileExtension == "las" || fileExtension == "laz"){
 
             try {
