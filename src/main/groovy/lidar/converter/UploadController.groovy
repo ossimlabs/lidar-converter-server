@@ -7,12 +7,14 @@ import io.micronaut.http.annotation.Post
 import io.micronaut.http.MediaType
 import lidar.converter.entwine.EntwineConverterService
 import lidar.converter.potree.PotreeConverterService
+import lidar.converter.LidarIndexerClient
 import org.apache.commons.io.FilenameUtils
 
 import javax.validation.constraints.NotNull
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
+import java.time.Instant
 
 @Controller
 class UploadController {
@@ -22,10 +24,12 @@ class UploadController {
 
     PotreeConverterService potreeConverterService
     EntwineConverterService entwineConverterService
+    LidarIndexerClient lidarIndexerClient
 
-    UploadController(PotreeConverterService potreeConverterService, EntwineConverterService entwineConverterService) {
+    UploadController(PotreeConverterService potreeConverterService, EntwineConverterService entwineConverterService, LidarIndexerClient lidarIndexerClient) {
         this.potreeConverterService = potreeConverterService
         this.entwineConverterService = entwineConverterService
+        this.lidarIndexerClient = lidarIndexerClient
     }
 
     @NotNull
@@ -43,14 +47,24 @@ class UploadController {
                 Path path = Paths.get(tmpFile.absolutePath)
                 Files.write(path, file)
 
+                Map<String, Object> lidarProduct = [
+                        ingest_date: Instant.now().toString(),
+                        //keyword: FilenameUtils.getBaseName(inputFile.name),
+                        keyword: fileName,
+                        type: fileType,
+                        status: 'Uploading'
+                ]
+
+                lidarIndexerClient.postLidarProduct(lidarProduct)
+
                 Thread.start{
                     if (fileType == "potree") {
                         println "Potree uploaded." // TODO: logger
-                        potreeConverterService.run(tmpFile)
+                        //potreeConverterService.run(tmpFile)
 
                     } else {
                         println "Entwine uploaded" // TODO: logger
-                        entwineConverterService.run(tmpFile)
+                        //entwineConverterService.run(tmpFile)
                     }
                 }
 
