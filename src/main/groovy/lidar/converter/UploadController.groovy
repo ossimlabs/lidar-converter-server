@@ -49,22 +49,27 @@ class UploadController {
 
                 Map<String, Object> lidarProduct = [
                         ingest_date: Instant.now().toString(),
-                        //keyword: FilenameUtils.getBaseName(inputFile.name),
                         keyword: fileName,
                         type: fileType,
-                        status: 'Uploading'
+                        status: 'Uploading',
+                        bbox: null
                 ]
 
-                lidarIndexerClient.postLidarProduct(lidarProduct)
+                String recordId = lidarIndexerClient.postLidarProduct(lidarProduct)
+                println "Created a new lidar indexer record with id: ${recordId}"
+
+                lidarProduct.put("id", recordId)
+
+                //sleep(10000)
 
                 Thread.start{
                     if (fileType == "potree") {
                         println "Potree uploaded." // TODO: logger
-                        //potreeConverterService.run(tmpFile)
+                        potreeConverterService.run(tmpFile, lidarProduct)
 
                     } else {
                         println "Entwine uploaded" // TODO: logger
-                        //entwineConverterService.run(tmpFile)
+                        entwineConverterService.run(tmpFile, lidarProduct)
                     }
                 }
 
