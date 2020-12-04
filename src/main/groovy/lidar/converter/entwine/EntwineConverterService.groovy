@@ -64,6 +64,7 @@ class EntwineConverterService {
             // lidarProduct.put("bbox", pdalService.getBboxWkt(inputFile))
 
             lidarProduct.put("keyword", FilenameUtils.getBaseName(inputFile.name))
+            lidarProduct.put("s3_link", outputFile as String)
             lidarProduct.put("status", "Success")
             lidarIndexerClient.putLidarProduct(lidarProduct, lidarProduct.get("id") as String)
 

@@ -37,4 +37,5 @@ lidar:
     # path: /t/8op9m-1591810729/post   
 #    endpoint: http://host.docker.internal:8080
     endpoint: ${LIDAR_INDEXER_URL:`http://lidar-indexer:8080`}
-    path: /lidarProducts/createLidarProduct
+    postPath: ${LIDAR_INDEXER_POST_PATH:/lidarProducts/createLidarProduct}
+    putPath: ${LIDAR_INDEXER_PUT_PATH:/lidarProducts/updateById}
