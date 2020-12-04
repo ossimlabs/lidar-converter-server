@@ -1,5 +1,7 @@
 package lidar.converter
 
+import io.micronaut.http.HttpResponse
+
 import javax.inject.Singleton
 
 import io.micronaut.context.annotation.Value
@@ -10,21 +12,38 @@ import io.micronaut.http.client.HttpClient
 class LidarIndexerClient 
 {
 	@Value('${lidar.indexer.endpoint}')
-	String lidarIndexerEndopint
+	String lidarIndexerEndpoint
 
-	@Value('${lidar.indexer.path}')
-	String lidarIndexerPath
+	@Value('${lidar.indexer.postPath}')
+	String lidarIndexerPostPath
+
+	@Value('${lidar.indexer.putPath}')
+	String lidarIndexerPutPath
 
 
     def postLidarProduct(Map<String,Object> lidarProduct) 
     {
-        HttpClient client = HttpClient.create(lidarIndexerEndopint?.toURL())
+        HttpClient client = HttpClient.create(lidarIndexerEndpoint?.toURL())
+		println "Posting: ${lidarIndexerEndpoint} with path ${lidarIndexerPostPath}"
 
-		String result = client.toBlocking().exchange(
-			HttpRequest.POST(lidarIndexerPath, lidarProduct),
+		def result = client.toBlocking().exchange(
+			HttpRequest.POST(lidarIndexerPostPath, lidarProduct),
 			Map
 		)
 
-		println "POST: ${result}"
+		println "POST: ${result.getBody().get().id}"
+		return result.getBody().get().id
     }
+
+	def putLidarProduct(Map<String,Object> lidarProduct, String id)
+	{
+		HttpClient client = HttpClient.create(lidarIndexerEndpoint?.toURL())
+		println "Posting: ${lidarIndexerEndpoint} with path ${lidarIndexerPutPath}"
+
+		def putResult = client.toBlocking().exchange(
+				HttpRequest.PUT("${lidarIndexerPutPath}/${id}", lidarProduct),
+				Map
+		)
+		println "Pupt: ${putResult.getBody()}"
+	}
 }

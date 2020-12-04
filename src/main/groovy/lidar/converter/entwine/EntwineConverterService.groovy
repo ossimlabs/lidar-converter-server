@@ -24,7 +24,11 @@ class EntwineConverterService {
         this.zipService = zipService
     }
 
-    String run(File inputFile) {
+    String run(File inputFile, Map lidarProduct) {
+
+        lidarProduct.put("status", "Converting")
+        lidarIndexerClient.putLidarProduct(lidarProduct, lidarProduct.get("id") as String)
+
         String outputFile = "/entwine/${FilenameUtils.getBaseName(inputFile.name)}"
         String outputLocation = new File(outputDirectory, outputFile)
 
@@ -47,16 +51,27 @@ class EntwineConverterService {
         println "exitCode: ${exitCode}"
 
         if (exitCode == 0) {
-            zipService.run(outputLocation, FilenameUtils.getBaseName(inputFile.name))
+            zipService.run(outputLocation, FilenameUtils.getBaseName(inputFile.name), lidarProduct)
 
-            Map<String, Object> lidarProduct = [
-                    ingest_date: Instant.now().toString(),
-                    keyword    : FilenameUtils.getBaseName(inputFile.name),
-                    s3_link    : outputFile as String,
-                    bbox       : pdalService.getBboxWkt(inputFile)
-            ]
+//            Map<String, Object> lidarProduct = [
+//                    ingest_date: Instant.now().toString(),
+//                    keyword    : FilenameUtils.getBaseName(inputFile.name),
+//                    s3_link    : outputFile as String,
+//                    bbox       : pdalService.getBboxWkt(inputFile)
+//            ]
 
-            lidarIndexerClient.postLidarProduct(lidarProduct)
+            // Removing this for now to save some processing time until we need to display footprints on a map
+            // lidarProduct.put("bbox", pdalService.getBboxWkt(inputFile))
+
+            lidarProduct.put("keyword", FilenameUtils.getBaseName(inputFile.name))
+            lidarProduct.put("s3_link", outputFile as String)
+            lidarProduct.put("status", "Success")
+            lidarIndexerClient.putLidarProduct(lidarProduct, lidarProduct.get("id") as String)
+
+            sleep(3000)
+
+            lidarProduct.put("status", "Completed")
+            lidarIndexerClient.putLidarProduct(lidarProduct, lidarProduct.get("id") as String)
 
             return stdout.toString()
         } else {

@@ -24,7 +24,11 @@ class PotreeConverterService {
         this.zipService = zipService
     }
 
-    String run(File inputFile) {
+    String run(File inputFile, Map lidarProduct ) {
+
+        lidarProduct.put("status", "Converting")
+        lidarIndexerClient.putLidarProduct(lidarProduct, lidarProduct.get("id") as String)
+
         String inputFileFullPath = inputFile.getAbsolutePath()
 
         def outputFile = "/potree/${FilenameUtils.getBaseName(inputFile.name)}"
@@ -54,16 +58,29 @@ class PotreeConverterService {
         println "exitCode: ${exitCode}"
 
         if (exitCode == 0) {
-            zipService.run(outputLocation, FilenameUtils.getBaseName(inputFile.name))
+            zipService.run(outputLocation, FilenameUtils.getBaseName(inputFile.name), lidarProduct)
 
-            Map<String, Object> lidarProduct = [
-                    ingest_date: Instant.now().toString(),
-                    keyword    : FilenameUtils.getBaseName(inputFile.name),
-                    s3_link    : outputFile as String,
-                    bbox       : pdalService.getBboxWkt(inputFile)
-            ]
+//            Map<String, Object> lidarProduct = [
+//                    ingest_date: Instant.now().toString(),
+//                    keyword    : FilenameUtils.getBaseName(inputFile.name),
+//                    s3_link    : outputFile as String,
+//                    type: 'Potree',
+//                    bbox       : pdalService.getBboxWkt(inputFile)
+//            ]
 
-            lidarIndexerClient.postLidarProduct(lidarProduct)
+            // Removing this for now to save some processing time until we need to display footprints on a map
+            // lidarProduct.put("bbox", pdalService.getBboxWkt(inputFile))
+
+            lidarProduct.put("keyword", FilenameUtils.getBaseName(inputFile.name))
+            lidarProduct.put("s3_link", outputFile as String)
+            lidarProduct.put("status", "Success")
+            lidarIndexerClient.putLidarProduct(lidarProduct, lidarProduct.get("id") as String)
+
+            sleep(3000)
+
+            lidarProduct.put("status", "Completed")
+            lidarIndexerClient.putLidarProduct(lidarProduct, lidarProduct.get("id") as String)
+
             println stdout.toString()
 
             // Clean up after the file has been successfully converted
