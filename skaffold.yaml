@@ -1,16 +1,15 @@
-apiVersion: skaffold/v2beta4
+apiVersion: skaffold/v2beta10
 kind: Config
 metadata:
   name: lidar-converter-server
 build:
   artifacts:
-    - image: nexus-docker-public-hosted.ossim.io/lidar-converter-server
-#    - image: hercules/lidar-converter-server
-      jib: {}
+  - image: nexus-docker-public-hosted.ossim.io/lidar-converter-server
+    jib: {}
   tagPolicy:
     sha256: {}
 deploy:
   helm:
     releases:
-      - name: lidar-converter-server
-        chartPath: chart
+    - name: lidar-converter-server
+      chartPath: chart
