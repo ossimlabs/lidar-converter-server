@@ -11,54 +11,55 @@ import io.micronaut.context.annotation.Value
 
 @Singleton
 class PotreeConverterService {
-    LidarIndexerClient lidarIndexerClient
-    PdalService pdalService
-    ZipService zipService
+  LidarIndexerClient lidarIndexerClient
+  PdalService pdalService
+  ZipService zipService
 
-    @Value('${lidar.converter.potree.outputDirectory}')
-    String outputDirectory
+  @Value( '${lidar.converter.potree.outputDirectory}' )
+  String outputDirectory
 
-    PotreeConverterService(LidarIndexerClient lidarIndexerClient, PdalService pdalService, ZipService zipService) {
-        this.lidarIndexerClient = lidarIndexerClient
-        this.pdalService = pdalService
-        this.zipService = zipService
-    }
+  PotreeConverterService( LidarIndexerClient lidarIndexerClient, PdalService pdalService, ZipService zipService ) {
+    this.lidarIndexerClient = lidarIndexerClient
+    this.pdalService = pdalService
+    this.zipService = zipService
+  }
 
-    String run(File inputFile, Map lidarProduct ) {
+  String run( File inputFile, Map lidarProduct ) {
 
-        lidarProduct.put("status", "Converting")
-        lidarIndexerClient.putLidarProduct(lidarProduct, lidarProduct.get("id") as String)
+    lidarProduct.put( "status", "Converting" )
+    lidarIndexerClient.putLidarProduct( lidarProduct, lidarProduct.get( "id" ) as String )
 
-        String inputFileFullPath = inputFile.getAbsolutePath()
+    String inputFileFullPath = inputFile.getAbsolutePath()
 
-        def outputFile = "/potree/${FilenameUtils.getBaseName(inputFile.name)}"
-        String outputLocation = new File(outputDirectory, outputFile)
+    def outputFile = "/potree/${ FilenameUtils.getBaseName( inputFile.name ) }"
+    String outputLocation = new File( outputDirectory, outputFile )
+    String material = pdalService.getMaterial( inputFile )
 
-        def cmd = [
-                '/usr/local/bin/PotreeConverter',
-                '--source', "${inputFileFullPath}",
-                '--outdir', "${outputLocation}",
-                '--generate-page', 'index',
-                '--material', 'RGB',
-                '--edl-enabled',
-                '--output-format', 'LAS',
-                '--overwrite'
-        ]
+    def cmd = [
+        '/usr/local/bin/PotreeConverter',
+        '--source', "${ inputFileFullPath }",
+        '--outdir', "${ outputLocation }",
+        '--generate-page', 'index',
+        '--material', material ?: 'ELEVATION',
+        '--edl-enabled',
+        '--output-format', 'LAS',
+        '--overwrite'
+    ]
 
-        println cmd.join(' ')
+    println cmd.join( ' ' )
 
-        def process = cmd.execute()
-        def stdout = new StringWriter()
-        def stderr = new StringWriter()
+    def process = cmd.execute()
+    def stdout = new StringWriter()
+    def stderr = new StringWriter()
 
-        process.consumeProcessOutput(stdout, stderr)
+    process.consumeProcessOutput( stdout, stderr )
 
-        def exitCode = process.waitFor()
+    def exitCode = process.waitFor()
 
-        println "exitCode: ${exitCode}"
+    println "exitCode: ${ exitCode }"
 
-        if (exitCode == 0) {
-            zipService.run(outputLocation, FilenameUtils.getBaseName(inputFile.name), lidarProduct)
+    if ( exitCode == 0 ) {
+      zipService.run( outputLocation, FilenameUtils.getBaseName( inputFile.name ), lidarProduct )
 
 //            Map<String, Object> lidarProduct = [
 //                    ingest_date: Instant.now().toString(),
@@ -68,29 +69,29 @@ class PotreeConverterService {
 //                    bbox       : pdalService.getBboxWkt(inputFile)
 //            ]
 
-            // Removing this for now to save some processing time until we need to display footprints on a map
-            // lidarProduct.put("bbox", pdalService.getBboxWkt(inputFile))
+      // Removing this for now to save some processing time until we need to display footprints on a map
+      // lidarProduct.put("bbox", pdalService.getBboxWkt(inputFile))
 
-            lidarProduct.put("keyword", FilenameUtils.getBaseName(inputFile.name))
-            lidarProduct.put("s3_link", outputFile as String)
-            lidarProduct.put("status", "Success")
-            lidarIndexerClient.putLidarProduct(lidarProduct, lidarProduct.get("id") as String)
+      lidarProduct.put( "keyword", FilenameUtils.getBaseName( inputFile.name ) )
+      lidarProduct.put( "s3_link", outputFile as String )
+      lidarProduct.put( "status", "Success" )
+      lidarIndexerClient.putLidarProduct( lidarProduct, lidarProduct.get( "id" ) as String )
 
-            sleep(3000)
+      sleep( 3000 )
 
-            lidarProduct.put("status", "Completed")
-            lidarIndexerClient.putLidarProduct(lidarProduct, lidarProduct.get("id") as String)
+      lidarProduct.put( "status", "Completed" )
+      lidarIndexerClient.putLidarProduct( lidarProduct, lidarProduct.get( "id" ) as String )
 
-            println stdout.toString()
+      println stdout.toString()
 
-            // Clean up after the file has been successfully converted
-            inputFile.delete()
+      // Clean up after the file has been successfully converted
+      inputFile.delete()
 
-            return stdout.toString()
-        } else {
-            inputFile.delete()
-            return stderr.toString()
+      return stdout.toString()
+    } else {
+      inputFile.delete()
+      return stderr.toString()
 
-        }
     }
+  }
 }
